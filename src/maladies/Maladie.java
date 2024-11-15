@@ -48,14 +48,13 @@ public class Maladie {
             niveauActuel--;
             System.out.println(nomMaladie + " s'améliore, son niveau actuel est de : " + niveauActuel);
         } else {
-            System.out.println(nomMaladie + " est déjà complètement guérie !");
+            System.out.println(nomMaladie + " est déjà soigné");
         }
-    }
-    public boolean estGuerie() {
-        return niveauActuel == 0;
     }
     public boolean estLetale() {
         return niveauActuel == niveauMax;
     }
-
+    public boolean estGuerie() {
+        return niveauActuel == 0;
+    }
 }
