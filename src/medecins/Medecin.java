@@ -14,5 +14,5 @@ public class Medecin {
         this.age = age;
         this.type = type;
     }
-
+    
 }

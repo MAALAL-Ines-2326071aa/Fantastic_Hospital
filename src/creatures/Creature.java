@@ -37,6 +37,8 @@ public class Creature {
     public void semporter() {
         System.out.println(nomCreature + " S'EMPORTE !");
     }
+
+
     public void tomberMalade(Maladie maladie) {
         this.maladies.add(maladie);
         System.out.println(nomCreature + " a attrapé " + maladie.nomMaladie );
@@ -57,7 +59,19 @@ public class Creature {
             System.out.println(nomCreature + " n'est pas atteinte par " + maladie.nomMaladie);
         }
     }
-    public void trepasser() {
-        System.out.println(nomCreature + " n'a pas survécu");
+    public void trepasser(List<Creature> creaturesDansLeService) {
+        System.out.println(nomCreature + " n'a pas survécu.");
+
+        // Affecter négativement le moral des autres créatures dans le service
+        System.out.println("La mort de " + nomCreature + " affecte le moral des autres créatures !");
+        for (Creature creature : creaturesDansLeService) {
+            if (!creature.equals(this)) {
+                creature.moral -= 10; // Réduit le moral de 10
+                if (creature.moral < 0) {
+                    creature.moral = 0;
+                }
+                System.out.println("Le moral de " + creature.nomCreature + " a diminué, il est maintenant à : " + creature.moral);
+            }
+        }
     }
 }
