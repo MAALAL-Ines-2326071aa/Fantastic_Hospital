@@ -49,7 +49,7 @@ public class ServiceMed {
             System.out.println("Cette créature n'est pas présente dans le service");
         }
     }
-    public void reviserbudget(String nouveauBudget) {
+    public void reviserBudget(String nouveauBudget) {
         if (nouveauBudget.equals("inexistant") || nouveauBudget.equals("médiocre")
                 || nouveauBudget.equals("insuffisant") || nouveauBudget.equals("faible")) {
             this.budget = nouveauBudget;
@@ -66,5 +66,13 @@ public class ServiceMed {
         } else {
             System.out.println("Cette créature n'est pas dans ce service.");
         }
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getNbCreaturesPresentes() {
+        return nbCreaturesPresentes;
     }
 }
