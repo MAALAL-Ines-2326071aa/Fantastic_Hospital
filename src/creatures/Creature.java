@@ -22,6 +22,10 @@ public class Creature {
         this.moral = 100;
         this.maladies = new ArrayList<>();
     }
+    public String getNom() {
+        return nomCreature;
+    }
+
     public void attendre() {
         this.moral -= 10;
         if (this.moral < 0) {
