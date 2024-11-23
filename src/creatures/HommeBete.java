@@ -3,8 +3,8 @@ package creatures;
 import maladies.Maladie;
 
 public class HommeBete extends Creature{
-    public HommeBete(String nomCreature, String sexe, double poids, double taille, int age) {
-        super(nomCreature, sexe, poids, taille, age);
+    public HommeBete(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie) {
+        super(nomCreature, sexe, poids, taille, age, maladie);
     }
 
     public void contaminer(Creature cible, Maladie maladie) {

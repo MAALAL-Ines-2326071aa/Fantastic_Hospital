@@ -5,8 +5,8 @@ import maladies.Maladie;
 
 public class Orque extends Creature {
 
-    public Orque(String nomCreature, String sexe, double poids, double taille, int age) {
-        super(nomCreature, sexe, poids, taille, age);
+    public Orque(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie) {
+        super(nomCreature, sexe, poids, taille, age,maladie);
     }
 
 

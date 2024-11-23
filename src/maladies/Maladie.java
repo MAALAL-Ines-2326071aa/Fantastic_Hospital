@@ -12,20 +12,22 @@ public class Maladie {
         this.niveauActuel = niveauActuel;
         this.niveauMax = niveauMax;
     }
-    public String getNomMaladie() {
-        return nomMaladie;
-    }
+
 
     public String getNomAbrege() {
         return nomAbrege;
     }
 
-    public int getNiveauActuel() {
-        return niveauActuel;
-    }
-
     public int getNiveauMax() {
         return niveauMax;
+    }
+
+    public String getNom() {
+        return nomMaladie;
+    }
+
+    public int getNiveau() {
+        return niveauActuel;
     }
 
     public void setNiveauActuel(int niveauActuel) {
@@ -35,26 +37,22 @@ public class Maladie {
             System.out.println("Le niveau actuel est supérieur au niveau maximum");
         }
     }
-    public void augmenterNiveau() {
-        if (niveauActuel < niveauMax) {
-            niveauActuel++;
-            System.out.println(nomMaladie + " s'aggrave, son niveau actuel est de : " + niveauActuel);
-        } else {
-            System.out.println(nomMaladie + " est au niveau maximum ");
-        }
+    public void aggraver() {
+        this.niveauActuel = Math.min(this.niveauActuel + 1, this.niveauMax);
     }
+
     public void diminuerNiveau() {
         if (niveauActuel > 0) {
             niveauActuel--;
-            System.out.println(nomMaladie + " s'améliore, son niveau actuel est de : " + niveauActuel);
-        } else {
-            System.out.println(nomMaladie + " est déjà soigné");
         }
     }
+
     public boolean estLetale() {
         return niveauActuel == niveauMax;
     }
     public boolean estGuerie() {
         return niveauActuel == 0;
     }
+
+
 }

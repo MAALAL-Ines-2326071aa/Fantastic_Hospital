@@ -4,8 +4,8 @@ import maladies.Maladie;
 
 public class Lycanthrope extends Creature {
 
-    public Lycanthrope(String nomCreature, String sexe, double poids, double taille, int age) {
-        super(nomCreature, sexe, poids, taille, age);
+    public Lycanthrope(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie) {
+        super(nomCreature, sexe, poids, taille, age, maladie);
     }
 
     public void contaminer(Creature cible, Maladie maladie) {

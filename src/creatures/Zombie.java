@@ -5,8 +5,8 @@ import maladies.Maladie;
 import java.util.List;
 
 public class Zombie extends Creature {
-    public Zombie(String nomCreature, String sexe, double poids, double taille, int age) {
-        super(nomCreature, sexe, poids, taille, age);
+    public Zombie(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie) {
+        super(nomCreature, sexe, poids, taille, age,maladie);
     }
 
     public void regenerer(List<Creature> creaturesDansLeService) {

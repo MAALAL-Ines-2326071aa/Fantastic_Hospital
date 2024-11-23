@@ -4,6 +4,7 @@ package servicesMed;
 import java.util.ArrayList;
 import java.util.List;
 import creatures.Creature;
+import maladies.Maladie;
 
 public class ServiceMed {
     public String nom;
@@ -29,8 +30,16 @@ public class ServiceMed {
         System.out.println("Budget: " + budget);
         System.out.println("Créatures: ");
         for (Creature creature : creatures) {
-            System.out.println("," + creature.getNom());
+            System.out.println("- " + creature.getNom());
+            System.out.println("Moral : " + creature.getMoral());
+            System.out.println("  Maladies :");
+            for (Maladie maladie : creature.getMaladies()) {
+                System.out.println("    * " + maladie.getNom() + " (Niveau : " + maladie.getNiveau() + ")");
+            }
         }
+        System.out.println();
+        System.out.println("====================================");// pour avoir un design plus clair pour différencier les services
+        System.out.println();
     }
     public void ajouterCreature(Creature creature){
         if (nbCreaturesPresentes < nbMaxCreatures) {

@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Elfe extends Creature {
 
-    public Elfe(String nomCreature, String sexe, double poids, double taille, int age) {
-        super(nomCreature, sexe, poids, taille, age);
+    public Elfe(String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie) {
+        super(nomCreature, sexe, poids, taille, age,maladie);
     }
 
     public void demoraliser(List<Creature> creaturesDansLeService) {
