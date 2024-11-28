@@ -35,7 +35,7 @@ public class Maladie {
             System.out.println("Le niveau actuel est supérieur au niveau maximum");
         }
     }
-    public void augmenterNiveau() {
+    public void aggraver() {
         if (niveauActuel < niveauMax) {
             niveauActuel++;
             System.out.println(nomMaladie + " s'aggrave, son niveau actuel est de : " + niveauActuel);
@@ -44,13 +44,19 @@ public class Maladie {
         }
     }
     public void diminuerNiveau() {
+        final int DECREMENT = 35;
+
         if (niveauActuel > 0) {
-            niveauActuel--;
+            niveauActuel -= DECREMENT;
+            if (niveauActuel < 0) {
+                niveauActuel = 0;
+            }
             System.out.println(nomMaladie + " s'améliore, son niveau actuel est de : " + niveauActuel);
         } else {
             System.out.println(nomMaladie + " est déjà soigné");
         }
     }
+
     public boolean estLetale() {
         return niveauActuel == niveauMax;
     }
@@ -58,3 +64,4 @@ public class Maladie {
         return niveauActuel == 0;
     }
 }
+

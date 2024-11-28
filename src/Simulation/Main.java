@@ -17,8 +17,8 @@ public class Main {
         Maladie maladie2 = new Maladie("Grippe", "GR", 30, 80);
         Creature creature1 = new Creature("Dragon", "Mâle", 200.0, 3.5, 5, maladie1, "Mythique");
         Creature creature2 = new Creature("Griffon", "Femelle", 80.0, 1.8, 3, maladie2, "Légendaire");
-        Medecin medecin1 = new Medecin("Dr. John", "Male", 45, creature1);
-        Medecin medecin2 = new Medecin("Dr. Smith", "Femelle", 39, creature2);
+        Medecin medecin1 = new Medecin("Dr. John", "Homme", 45, creature1);
+        Medecin medecin2 = new Medecin("Dr. Smith", "Femme", 39, creature2);
         hopital.ajouterMedecin(medecin1);
         hopital.ajouterMedecin(medecin2);
         urgences.ajouterCreature(creature1);
@@ -26,3 +26,5 @@ public class Main {
         hopital.systemeDeTours();
     }
 }
+
+

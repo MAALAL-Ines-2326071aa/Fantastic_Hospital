@@ -34,3 +34,4 @@ public class Vampire extends Creature {
         this.maladies.clear();
     }
 }
+

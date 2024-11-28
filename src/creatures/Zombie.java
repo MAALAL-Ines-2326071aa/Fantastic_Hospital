@@ -21,3 +21,4 @@ public class Zombie extends Creature {
         System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
     }
 }
+

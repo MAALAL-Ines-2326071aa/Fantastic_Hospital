@@ -8,3 +8,4 @@ public class Reptilien extends Creature {
         super(nomCreature, sexe, poids, taille, age, maladie, type);
     }
 }
+

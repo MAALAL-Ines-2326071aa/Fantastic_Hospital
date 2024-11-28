@@ -13,3 +13,4 @@ public class Lycanthrope extends Creature {
         System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
     }
 }
+
