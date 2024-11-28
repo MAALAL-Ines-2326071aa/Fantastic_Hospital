@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="correction jeu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hopital/Hopital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hopital/Hopital.java" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
+      <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="">
+          <change afterPath="$PROJECT_DIR$/src/creatures/Colonie.java" afterDir="false" />
+          <change afterPath="$PROJECT_DIR$/src/creatures/Meute.java" afterDir="false" />
+          <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+          <change beforePath="$PROJECT_DIR$/src/creatures/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Creature.java" afterDir="false" />
+          <change beforePath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" afterDir="false" />
+      </list>    <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
@@ -19,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
       </list>
@@ -49,7 +49,7 @@
     "create.test.in.the.same.root": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/inesm/Documents/Fantastic_Hospital",
+    "last_opened_file_path": "/home/mathis/ProjetVrai/Fantastic_Hospital",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,8 +69,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>

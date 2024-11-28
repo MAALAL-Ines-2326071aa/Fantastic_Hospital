@@ -129,6 +129,14 @@ public class Creature {
 
         creaturesEmportees.add(this);
     }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
 }
 
 
