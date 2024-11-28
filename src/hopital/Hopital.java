@@ -6,6 +6,7 @@ import medecins.Medecin;
 import creatures.Creature;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,6 +24,20 @@ public class Hopital {
         this.medecins = new ArrayList<>();
         this.medecinsDisponibles = new ArrayList<>();
     }
+
+    public static Maladie genererMaladieAleatoire() {
+            List<Maladie> listeMaladies = Arrays.asList(
+                    new Maladie("Maladie débilitante chronique", "MDC", 1, 5),
+                    new Maladie("Syndrome fear of missing out", "FOMO", 1, 5),
+                    new Maladie("Dépendance aux réseaux sociaux", "DRS", 1, 5),
+                    new Maladie("Porphyrie érythropoïétique congénitale", "PEC", 1, 5),
+                    new Maladie("Zoopathie paraphrénique lycanthropique", "ZPL", 1, 5),
+                    new Maladie("COVID-19", "CVD", 1, 5)
+            );
+            return listeMaladies.get((int) (Math.random() * listeMaladies.size()));
+    }
+
+
 
     // Ajouter un service
     public void ajouterService(ServiceMed service) {
@@ -61,7 +76,7 @@ public class Hopital {
 
             // Ajout aléatoire de créatures avec une maladie
             for (int i = 0; i < 3; i++) {
-                Maladie maladie = (Math.random() < 0.5) ? new Maladie("Fièvre", "FR", 1, 5) : new Maladie("Grippe", "GR", 1, 5);
+                Maladie maladie = Hopital.genererMaladieAleatoire();
                 String type = (Math.random() < 0.5) ? "Mythique" : "Légendaire";
                 Creature nouvelleCreature = new Creature(
                         "Créature" + (urgences.creatures.size() + 1),
