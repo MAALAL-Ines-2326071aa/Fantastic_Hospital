@@ -1,11 +1,13 @@
 package creatures;
 
+import org.junit.platform.engine.support.descriptor.FileSystemSource;
+
 import java.util.*;
 
 public class Meute {
     private String nom; // Nom de la meute
-    private Lycanthrope alphaMale; // Mâle α
-    private Lycanthrope alphaFemelle; // Femelle α
+    private Lycanthrope alphaMale; // Mâle aplha
+    private Lycanthrope alphaFemelle; // Femelle aplha
     private List<Lycanthrope> membres; // Liste des membres de la meute
 
     public Meute(String nom) {
@@ -21,10 +23,13 @@ public class Meute {
     }
 
     // Ajouter un lycanthrope à la meute
-    public void ajouterLycanthrope(Lycanthrope lycanthrope) {
-        membres.add(lycanthrope);
-        mettreAJourHierarchie();
+    public void ajouterLycanthrope(Lycanthrope lycan) {
+        if (!membres.contains(lycan)) {
+            membres.add(lycan);
+            lycan.rejoindreMeute(this); // Met à jour la référence de la meute dans le lycan
+        }
     }
+
 
     // Supprimer un lycanthrope de la meute
     public void supprimerLycanthrope(Lycanthrope lycanthrope) {
@@ -39,35 +44,153 @@ public class Meute {
         } else {
             System.out.println("Hiérarchie de la meute " + nom + ":");
             for (Lycanthrope lycan : membres) {
-                System.out.println(lycan.nomCreature + " - Rang: " + lycan.getRang());
+                System.out.println(lycan.nomCreature + " - : " + lycan.getRang());
             }
         }
     }
 
     public void mettreAJourHierarchie() {
-        List<String> ordreRangs = Arrays.asList("α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π", "ρ", "σ", "τ", "υ", "φ", "χ", "ψ", "ω");
+        // Liste des rangs dans l'ordre hiérarchique
+        List<String> ordreRangs = Arrays.asList("alpha", "beta", "gamma", "omega");
 
-        membres.sort((l1, l2) -> {
-            int rang1 = ordreRangs.indexOf(l1.getRang());
-            int rang2 = ordreRangs.indexOf(l2.getRang());
-            return Integer.compare(rang1, rang2);
-        });
+        // Trier les membres par force (ordre décroissant)
+        membres.sort(Comparator.comparing(Lycanthrope::getForce).reversed());
 
-        constituerCoupleAlpha(); // Mettre à jour le couple alpha à chaque changement de hiérarchie
-    }
+        // Identifier les potentiels nouveaux alpha (le plus fort mâle et femelle)
+        Lycanthrope nouveauAlphaMale = membres.stream()
+                .filter(lycan -> lycan.getSexe().equals("Mâle"))
+                .findFirst()
+                .orElse(null);
 
-    public String rangSuivant(String actuel, String sexe) {
-        List<String> rangs = Arrays.asList("α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π", "ρ", "σ", "τ", "υ", "φ", "χ", "ψ", "ω");
-        int indexActuel = rangs.indexOf(actuel);
-        if (indexActuel < rangs.size() - 1) {
-            String prochainRang = rangs.get(indexActuel + 1);
+        Lycanthrope nouveauAlphaFemelle = membres.stream()
+                .filter(lycan -> lycan.getSexe().equals("Femelle"))
+                .findFirst()
+                .orElse(null);
 
-            // Verifier si quelqu'un du même sexe a dejà ce rang
-            boolean libre = membres.stream().noneMatch(l -> l.getRang().equals(prochainRang) && l.sexe.equals(sexe));
-            return libre ? prochainRang : null;
+        // Gestion des mâles alpha
+        if (nouveauAlphaMale != null && !nouveauAlphaMale.equals(alphaMale)) {
+            // Rétrograder l'ancien alpha mâle
+            if (alphaMale != null) {
+                alphaMale.setRang("beta");
+            }
+            // Promouvoir le nouveau alpha mâle
+            nouveauAlphaMale.setRang("alpha");
+            alphaMale = nouveauAlphaMale;
         }
-        return null;
+
+        // Gestion des femelles alpha
+        if (nouveauAlphaFemelle != null && !nouveauAlphaFemelle.equals(alphaFemelle)) {
+            // Rétrograder l'ancienne alpha femelle
+            if (alphaFemelle != null) {
+                alphaFemelle.setRang("beta");
+            }
+            // Promouvoir la nouvelle alpha femelle
+            nouveauAlphaFemelle.setRang("alpha");
+            alphaFemelle = nouveauAlphaFemelle;
+        }
+
+        // Réassigner les autres rangs
+        int indexM = 1; // Index pour les rangs des mâles
+        int indexF = 1; // Index pour les rangs des femelles
+
+        for (Lycanthrope lycan : membres) {
+            // Ignorer les alpha
+            if (lycan.equals(alphaMale) || lycan.equals(alphaFemelle)) {
+                continue;
+            }
+
+            // Déterminer le rang à attribuer selon le sexe
+            String nouveauRang;
+            if (lycan.getSexe().equals("Mâle")) {
+                nouveauRang = (indexM < ordreRangs.size()) ? ordreRangs.get(indexM) : "omega";
+                indexM++;
+            } else {
+                nouveauRang = (indexF < ordreRangs.size()) ? ordreRangs.get(indexF) : "omega";
+                indexF++;
+            }
+
+            // Assigner le rang
+            lycan.setRang(nouveauRang);
+        }
     }
+
+
+    private void reassignerRangs(List<String> ordreRangs) {
+        int indexM = 1; // Index pour les rangs des mâles
+        int indexF = 1; // Index pour les rangs des femelles
+
+        for (Lycanthrope lycan : membres) {
+            // Ignorer les alpha
+            if (lycan.equals(alphaMale) || lycan.equals(alphaFemelle)) {
+                continue;
+            }
+
+            // Déterminer le rang à attribuer selon le sexe
+            String nouveauRang;
+            if (lycan.getSexe().equals("Mâle")) {
+                nouveauRang = (indexM < ordreRangs.size()) ? ordreRangs.get(indexM) : "omega";
+                indexM++;
+            } else {
+                nouveauRang = (indexF < ordreRangs.size()) ? ordreRangs.get(indexF) : "omega";
+                indexF++;
+            }
+
+            // Assigner le rang
+            lycan.setRang(nouveauRang);
+        }
+    }
+
+
+
+    public void passerAuRangSuivant(Lycanthrope lycan) {
+        // Définir l'ordre des rangs
+        List<String> ordreRangs = Arrays.asList("omega", "gamma", "beta", "alpha");
+
+        // Trouver le rang actuel
+        String rangActuel = lycan.getRang();
+        int indexActuel = ordreRangs.indexOf(rangActuel);
+
+        // Vérifier si le rang actuel est valide
+        if (indexActuel == -1 || indexActuel == ordreRangs.size() - 1) {
+            // Si le rang est inconnu ou si le lycan est déjà "alpha", ne rien faire
+            return;
+        }
+
+        // Déterminer le prochain rang
+        String prochainRang = ordreRangs.get(indexActuel + 1);
+
+        // Si le prochain rang est "alpha", rechercher l'actuel alpha du même sexe
+        if ("alpha".equals(prochainRang)) {
+            Lycanthrope alphaActuel = null;
+
+            // Trouver l'alpha du même sexe dans la meute
+            for (Lycanthrope membre : membres) {
+                if (membre.getRang().equals("alpha") && membre.getSexe().equals(lycan.getSexe())) {
+                    alphaActuel = membre;
+                    break;
+                }
+            }
+
+            // Si un alpha existe, rétrograder cet alpha à "beta" ou "omega"
+            if (alphaActuel != null) {
+                alphaActuel.setRang("beta");
+            }
+
+            // Assigner le rang "alpha" au lycanthrope
+            lycan.setRang("alpha");
+
+            // Mettre à jour les alpha dans la meute si nécessaire
+            // Aucun besoin de mise à jour directe d'alphaMale ou alphaFemelle, c'est automatique via la recherche
+        }
+
+        // Assigner le nouveau rang si ce n'était pas déjà "alpha"
+        if (!"alpha".equals(prochainRang)) {
+            lycan.setRang(prochainRang);
+        }
+    }
+
+
+
 
     private void constituerCoupleAlpha() {
         Lycanthrope nouveauAlphaMale = membres.stream()
@@ -80,49 +203,25 @@ public class Meute {
                 .max(Comparator.comparing(Lycanthrope::getNiveau))
                 .orElse(null);
 
-        // Si le mâle α change, réattribuer les rangs de domination
         if (nouveauAlphaMale != null && !nouveauAlphaMale.equals(alphaMale)) {
             if (alphaMale != null) {
-                alphaMale.setRang("β");  // L'ancien mâle α perd son rang
+                alphaMale.setRang("beta");
             }
             alphaMale = nouveauAlphaMale;
-            alphaMale.setRang("α");
+            alphaMale.setRang("alpha");
         }
 
-        // Si la femelle α change, réattribuer les rangs
         if (nouvelleAlphaFemelle != null && !nouvelleAlphaFemelle.equals(alphaFemelle)) {
             if (alphaFemelle != null) {
-                alphaFemelle.setRang("β");  // L'ancienne femelle α perd son rang
+                alphaFemelle.setRang("beta");
             }
             alphaFemelle = nouvelleAlphaFemelle;
-            alphaFemelle.setRang("α");
+            alphaFemelle.setRang("alpha");
         }
     }
 
 
-    public void gererSolitaires() {
-        List<Lycanthrope> solitaires = new ArrayList<>();
 
-        for (Lycanthrope lycan : membres) {
-            if (lycan.getRang().equals("ω") || (lycan.getRang().equals("α") && lycan != alphaMale)) {
-                lycan.quitterMeute(); // Quitter la meute
-                solitaires.add(lycan);
-                lycan.setRang(null); // Les solitaires n'ont pas de rang
-                System.out.println(lycan.nomCreature + " devient solitaire.");
-            }
-        }
-
-        // Verifier si une nouvelle meute peut être constituee
-        Optional<Lycanthrope> male = solitaires.stream().filter(l -> l.sexe.equals("Mâle")).findFirst();
-        Optional<Lycanthrope> femelle = solitaires.stream().filter(l -> l.sexe.equals("Femelle")).findFirst();
-
-        if (male.isPresent() && femelle.isPresent()) {
-            Meute nouvelleMeute = new Meute("Nouvelle Meute");
-            male.get().rejoindreMeute(nouvelleMeute);
-            femelle.get().rejoindreMeute(nouvelleMeute);
-            System.out.println("Une nouvelle meute a ete constituee.");
-        }
-    }
 
     public List<Lycanthrope> getMembres() {
         return membres;
@@ -130,16 +229,16 @@ public class Meute {
 
     public void reproduireCoupleAlpha() {
         if (alphaMale == null || alphaFemelle == null) {
-            System.out.println("Pas de couple α pour la reproduction.");
+            System.out.println("Pas de couple aplha pour la reproduction.");
             return;
         }
 
         Random random = new Random();
         int nbPortee = random.nextInt(7) + 1; // Genère entre 1 et 7 jeunes
-        List<String> rangsDisponibles = Arrays.asList("γ", "β");
+        List<String> rangsDisponibles = Arrays.asList("gamma", "beta");
 
         for (int i = 0; i < nbPortee; i++) {
-            String rang = membres.stream().anyMatch(l -> l.getRang().equals("β")) ? "γ" : "β";
+            String rang = membres.stream().anyMatch(l -> l.getRang().equals("beta")) ? "gamma" : "beta";
             Lycanthrope jeune = new Lycanthrope(
                     "Jeune" + (i + 1),
                     random.nextBoolean() ? "Mâle" : "Femelle",
@@ -158,8 +257,4 @@ public class Meute {
             System.out.println(jeune.nomCreature + " est ne avec le rang " + rang + ".");
         }
     }
-
-
-
-
 }

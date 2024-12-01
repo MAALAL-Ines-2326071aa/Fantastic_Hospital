@@ -124,15 +124,10 @@ public class Lycanthrope extends Creature {
         return niveau;
     }
     // Rejoindre une meute
-    public void rejoindreMeute(Meute nouvelleMeute) {
-        if (this.meute != null) {
-            System.out.println(nomCreature + " quitte la meute " + this.meute.getNom() + ".");
-            this.meute.supprimerLycanthrope(this);
-        }
-        this.meute = nouvelleMeute;
-        nouvelleMeute.ajouterLycanthrope(this);
-        System.out.println(nomCreature + " a rejoint la meute " + nouvelleMeute.getNom() + " en tant que " + rang + ".");
+    public void rejoindreMeute(Meute meute) {
+        this.meute = meute; // Met à jour la référence vers la meute
     }
+
 
     // Quitter la meute actuelle
     public void quitterMeute() {
@@ -140,10 +135,12 @@ public class Lycanthrope extends Creature {
             System.out.println(nomCreature + " quitte la meute " + this.meute.getNom() + ".");
             this.meute.supprimerLycanthrope(this);
             this.meute = null;
+            this.rang = null;
         } else {
-            System.out.println(nomCreature + " est dejà solitaire.");
+            System.out.println(nomCreature + " est déjà solitaire.");
         }
     }
+
 
     // Afficher les informations de la hierarchie
     public void afficherHierarchie() {
@@ -171,7 +168,7 @@ public class Lycanthrope extends Creature {
             return;
         }
 
-        if (cible.getRang().equals("ω") || this.calculerNiveau() > cible.calculerNiveau()) {
+        if (cible.getRang().equals("omega") || this.calculerNiveau() > cible.calculerNiveau()) {
             accomplirDomination(cible);
         } else {
             cible.reagirAggression(this);
@@ -204,18 +201,6 @@ public class Lycanthrope extends Creature {
         return (ageFactor * 2) + force + facteurDomination;
     }
 
-    // Verifier si le lycanthrope perd un rang en fonction de son facteur de domination
-    public void verifierPerteRang() {
-        if (facteurDomination < -5 && !rang.equals("ω")) { // Exemple : seuil de -5
-            String nouveauRang = meute.rangSuivant(rang, sexe);
-            if (nouveauRang != null) {
-                System.out.println(nomCreature + " perd son rang " + rang + " et devient " + nouveauRang + ".");
-                this.setRang(nouveauRang);
-                meute.mettreAJourHierarchie();
-            }
-        }
-    }
-
     public void hurlerLycanthrope(String typeHurlement) {
         System.out.println(nomCreature + " hurle : " + typeHurlement);
 
@@ -236,6 +221,20 @@ public class Lycanthrope extends Creature {
             default:
                 System.out.println(nomCreature + " hurle sans précision.");
                 break;
+        }
+    }
+    public void gererSolitaires() {
+        if (this.meute != null) {
+            // Retirer ce lycanthrope de la liste des membres de la meute
+            this.meute.getMembres().remove(this);
+
+            // Réinitialiser la référence à la meute
+            this.quitterMeute();
+
+            // Informer qu'il est devenu solitaire
+            System.out.println(this.nomCreature + " devient solitaire.");
+        } else {
+            System.out.println(this.nomCreature + " n'appartient à aucune meute.");
         }
     }
 }

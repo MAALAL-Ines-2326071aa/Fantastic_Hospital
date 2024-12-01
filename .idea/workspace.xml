@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-      <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="">
-          <change afterPath="$PROJECT_DIR$/src/creatures/Colonie.java" afterDir="false" />
-          <change afterPath="$PROJECT_DIR$/src/creatures/Meute.java" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/creatures/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Creature.java" afterDir="false" />
-          <change beforePath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" afterDir="false" />
-      </list>    <option name="SHOW_DIALOG" value="false" />
+    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/MeuteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Fantastic_Hospital.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fantastic_Hospital.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Meute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Meute.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
@@ -19,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,6 +40,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.MeuteTest.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -55,6 +57,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -65,6 +68,28 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="medecins" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MeuteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Fantastic_Hospital" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.MeuteTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MeuteTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -85,6 +110,8 @@
       <workItem from="1731520454366" duration="18718000" />
       <workItem from="1732039521155" duration="1821000" />
       <workItem from="1732722848223" duration="15255000" />
+      <workItem from="1732971860841" duration="101000" />
+      <workItem from="1732971973116" duration="7208000" />
     </task>
     <servers />
   </component>
