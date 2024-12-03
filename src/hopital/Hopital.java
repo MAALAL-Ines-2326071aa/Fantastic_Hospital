@@ -84,18 +84,22 @@ public class Hopital {
                 // Ajout aléatoire de créatures avec une maladie
                 for (int i = 0; i < 3; i++) {
                     Maladie maladie = Hopital.genererMaladieAleatoire();
-                    String type = (Math.random() < 0.5) ? "Mythique" : "Légendaire";
-                    Creature nouvelleCreature = new Creature(
-                            "Créature" + (urgences.creatures.size() + 1),
+                    String[] types = {"Elfe", "HommeBete", "Nain", "Lycanthrope", "Orque", "Zombie", "Vampire", "Reptilien"};
+                    String type = types[(int) (Math.random() * types.length)];
+
+                    Creature nouvelleCreature = Creature.creerCreature(
+                            type,
+                            type + (urgences.creatures.size() + 1), // Le nom inclut le type
                             (Math.random() < 0.5) ? "Mâle" : "Femelle",
-                            Math.round(50 + Math.random() * 50),
-                            Math.round(150 + Math.random() * 50),
+                            (int) (Math.random() * 100),
+                            (int) (150 + Math.random() * 50),
                             (int) (10 + Math.random() * 50),
-                            maladie,
-                            type
+                            maladie
                     );
+
                     urgences.ajouterCreature(nouvelleCreature);
                 }
+
             }
             premierTour=false;
 

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import servicesMed.ServiceMed;
 import creatures.Creature;
 import maladies.Maladie;
-
+import creatures.Elfe;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +22,8 @@ class ServiceMedTest {
     @BeforeEach
     void setUp() {
         service = new ServiceMed("Urgences", 10, 0, 100, "médiocre");
-        Elfe = new Creature("Legolas", "Mâle", 200.0, 3.5, 5, genererMaladieAleatoire(), "Elfe");
-        Nain = new Creature("Damien", "Mâle", 200.0, 3.5, 5, genererMaladieAleatoire(), "Nain");
+        this.Elfe = Creature.creerCreature("Elfe","Legolas", "Mâle", 200, 3, 5, genererMaladieAleatoire());
+        this.Nain = Creature.creerCreature("Nain","Damien", "Mâle", 200, 3, 5, genererMaladieAleatoire());
     }
 
     @Test

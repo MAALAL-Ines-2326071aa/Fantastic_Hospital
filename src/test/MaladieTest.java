@@ -24,7 +24,7 @@ class MaladieTest {
         urgences = new ServiceMed("Urgences", 10, 0, 100, "médiocre");
         grippe = new Maladie("Grippe", "GRP", 50, 100);
 
-        creature1 = new Creature("Legolas", "Mâle", 200.0, 3.5, 5, Hopital.genererMaladieAleatoire(), "Elfe");
+        this.creature1 = Creature.creerCreature("Elfe","Legolas", "Mâle", 200, 3, 5, Hopital.genererMaladieAleatoire());
         System.out.println(creature1.getMaladies());
         urgences.ajouterCreature(creature1);
         if (!creature1.getMaladies().isEmpty()) {

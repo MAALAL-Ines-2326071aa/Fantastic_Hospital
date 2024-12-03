@@ -18,8 +18,8 @@ public class Main {
         ServiceMed quarantaine = new ServiceMed("Quarantaine", 5, 0, 80, "faible");
         hopital.ajouterService(urgences);
         hopital.ajouterService(quarantaine);
-        Creature creature1 = new Creature("Legolas", "Mâle", 200.0, 3.5, 5, genererMaladieAleatoire(), "Elfe");
-        Creature creature2 = new Creature("Griffon", "Femelle", 80.0, 1.8, 3, genererMaladieAleatoire(), "Légendaire");
+        Creature creature1= Creature.creerCreature("Elfe", "Legolas", "Mâle", 100, 100, 5, genererMaladieAleatoire());
+        Creature creature2=Creature.creerCreature("Nain", "Damien", "Mâle", 100, 10, 5, genererMaladieAleatoire());
         Medecin medecin1 = new Medecin("Dr. John", "Homme", 45, creature1);
         Medecin medecin2 = new Medecin("Dr. Smith", "Femme", 39, creature2);
         hopital.ajouterMedecin(medecin1);

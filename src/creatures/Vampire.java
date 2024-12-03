@@ -5,8 +5,15 @@ import maladies.Maladie;
 import java.util.List;
 
 public class Vampire extends Creature {
-    public Vampire(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie, String type) {
-        super(nomCreature, sexe, poids, taille, age, maladie, type);
+
+    private String type;
+    public Vampire(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie,String type) {
+        super(type,nomCreature, sexe, poids, taille, age, maladie);
+        this.type=type;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public void contaminer(Creature cible, Maladie maladie) {

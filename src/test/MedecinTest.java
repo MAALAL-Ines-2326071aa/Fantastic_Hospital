@@ -18,13 +18,13 @@ class MedecinTest {
 
     private Medecin medecin;
     private ServiceMed service;
-    private Creature creature;
     private Maladie maladie;
+    private Creature creature;
 
     @BeforeEach
     void setUp() {
         // Initialisation des objets nécessaires pour les tests
-        creature = new Creature("Legolas", "Mâle", 200.0, 3.5, 5, genererMaladieAleatoire(), "Elfe");
+        Creature creature= Creature.creerCreature("Elfe","Legolas", "Mâle", 200, 3, 5, genererMaladieAleatoire());
         maladie = new Maladie("Fièvre", "FR",1 ,5);
         creature.ajouterMaladie(maladie);
 

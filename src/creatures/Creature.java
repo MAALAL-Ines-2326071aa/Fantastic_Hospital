@@ -13,17 +13,18 @@ public class Creature {
     public double taille;
     public int moral;
     public List<Maladie> maladies;
-    private String type;
     public static List<Creature> creaturesEmportees = new ArrayList<>();
+    private String type;
 
 
-    public Creature(String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie, String type) {
+    public Creature(String type, String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie) {
         this.nomCreature = nomCreature;
         this.sexe = sexe;
         this.poids = poids;
         this.taille = taille;
         this.age = age;
         this.moral = 100;
+        this.type=type;
 
         this.maladies = new ArrayList<>();
         // Chaque créature arrive avec une maladie
@@ -31,6 +32,10 @@ public class Creature {
             this.maladies.add(maladie);
             System.out.println(nomCreature + " a attrapé la maladie : " + maladie.nomMaladie);
         }
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String getNomCreature() {
@@ -133,6 +138,30 @@ public class Creature {
     public void setSexe(String sexe) {
         this.sexe = sexe;
     }
+
+    public static Creature creerCreature(String type, String nom, String sexe, int moral, int poids, int age, Maladie maladie) {
+        switch (type) {
+            case "Elfe":
+                return new Elfe(nom, sexe, moral, poids, age, maladie,type);
+            case "HommeBete":
+                return new HommeBete(nom, sexe, moral, poids, age, maladie,type);
+            case "Nain":
+                return new Nain(nom, sexe, moral, poids, age, maladie,type);
+            case "Lycanthrope":
+                return new Lycanthrope(type,nom, sexe, moral, poids, age, maladie, Math.random()>0.5 ? "jeune":"vieux", (int) (Math.random()*10),(int) (Math.random()*10), Math.random()<0.5 ? "omega": "beta", (int) (Math.random()*10) );
+            case "Orque":
+                return new Orque(nom, sexe, moral, poids, age, maladie,type);
+            case "Zombie":
+                return new Zombie(nom, sexe, moral, poids, age, maladie,type);
+            case "Vampire":
+                return new Vampire(nom, sexe, moral, poids, age, maladie,type);
+            case "Reptilien":
+                return new Reptilien(nom, sexe, moral, poids, age, maladie,type);
+            default:
+                throw new IllegalArgumentException("Type de créature inconnu : " + type);
+        }
+    }
+
 }
 
 

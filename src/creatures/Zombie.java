@@ -5,8 +5,16 @@ import maladies.Maladie;
 import java.util.List;
 
 public class Zombie extends Creature {
-    public Zombie(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie, String type) {
-        super(nomCreature, sexe, poids, taille, age,maladie, type);
+
+    private String type;
+
+    public Zombie(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie,String type) {
+        super(type,nomCreature, sexe, poids, taille, age,maladie);
+        this.type=type;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public void regenerer(List<Creature> creaturesDansLeService) {

@@ -5,9 +5,24 @@ import maladies.Maladie;
 import java.util.List;
 
 public class Elfe extends Creature {
+    private String type;
+    public Elfe(String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie,String type) {
+        super(type,nomCreature, sexe, poids, taille, age,maladie);
+        this.type=type;
+    }
 
-    public Elfe(String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie, String type) {
-        super(nomCreature, sexe, poids, taille, age,maladie,type);
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public String getNomCreature() {
+        return super.getNomCreature();
+    }
+
+    @Override
+    public List<Maladie> getMaladies() {
+        return super.getMaladies();
     }
 
     public void demoraliser(List<Creature> creaturesDansLeService) {

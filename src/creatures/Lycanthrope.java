@@ -12,19 +12,25 @@ public class Lycanthrope extends Creature {
     private int niveau; // Niveau calcule
     private int impetuosite; // Niveau d'impulsivite
     private Meute meute; // Nom de la meute ou "solitaire"
+    private String type;
 
-    public Lycanthrope(String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie, String type,
+    public Lycanthrope(String type,String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie,
                        String categorieAge, int force, int facteurDomination, String rang, int impetuosite) {
-        super(nomCreature, sexe, poids, taille, age, maladie, type);
+        super(type,nomCreature, sexe, poids, taille, age, maladie);
         this.categorieAge = categorieAge;
         this.force = force;
         this.facteurDomination = facteurDomination;
         this.rang = rang;
         this.impetuosite = impetuosite;
         this.meute = null;
+        this.type=type;
 
         // Calcul initial du niveau
         calculerNiveau();
+    }
+
+    public String getType() {
+        return type;
     }
 
     // Affiche les caracteristiques du lycanthrope
@@ -237,4 +243,5 @@ public class Lycanthrope extends Creature {
             System.out.println(this.nomCreature + " n'appartient à aucune meute.");
         }
     }
+
 }

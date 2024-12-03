@@ -239,14 +239,13 @@ public class Meute {
 
         for (int i = 0; i < nbPortee; i++) {
             String rang = membres.stream().anyMatch(l -> l.getRang().equals("beta")) ? "gamma" : "beta";
-            Lycanthrope jeune = new Lycanthrope(
+            Lycanthrope jeune = new Lycanthrope("Lycanthrope",
                     "Jeune" + (i + 1),
                     random.nextBoolean() ? "Mâle" : "Femelle",
                     10 + random.nextInt(10),
                     50 + random.nextInt(20),
                     0,
                     null, // Pas de maladie
-                    "Lycanthrope",
                     "jeune",
                     random.nextInt(5), // Force aleatoire
                     0,

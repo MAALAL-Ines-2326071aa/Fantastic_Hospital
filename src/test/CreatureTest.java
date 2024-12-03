@@ -16,13 +16,14 @@ class CreatureTest {
     private Maladie grippe;
     private Maladie rhume;
     private List<Creature> creaturesDansLeService;
+    private Creature gimli;
 
     @BeforeEach
     void setUp() {
         grippe = new Maladie("Grippe", "GRP", 50, 100);
         rhume = new Maladie("Rhume", "RHM", 10, 50);
 
-        legolas = new Creature("Legolas", "Mâle", 200.0, 3.5, 5, grippe, "Elfe");
+        this.legolas = Creature.creerCreature("Elfe","Legolas", "Mâle", 200, 3, 5, grippe);
         creaturesDansLeService = new ArrayList<>();
         creaturesDansLeService.add(legolas);
     }
@@ -63,7 +64,7 @@ class CreatureTest {
 
     @Test
     void testContaminer() {
-        Creature gimli = new Creature("Gimli", "Mâle", 250.0, 1.5, 10, null, "Nain");
+        Creature gimli = new Creature("Nain","Gimli", "Mâle", 250, 1.5, 10, null);
         creaturesDansLeService.add(gimli);
         gimli.ajouterMaladie(rhume);
 
@@ -92,7 +93,7 @@ class CreatureTest {
 
     @Test
     void testTrepasse() {
-        Creature gimli = new Creature("Gimli", "Mâle", 250.0, 1.5, 10, null, "Nain");
+        this.gimli=Creature.creerCreature("Nain","Gimli", "Mâle", 250, 1, 10, null);
         creaturesDansLeService.add(gimli);
 
         legolas.trepasser(creaturesDansLeService);
