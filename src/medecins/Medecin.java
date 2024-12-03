@@ -6,6 +6,7 @@ import creatures.Creature;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Medecin {
     public String nom;
@@ -71,7 +72,13 @@ public class Medecin {
     // Révision du budget d'un service
     public void reviserBudget(ServiceMed service, String nouveauBudget) {
         System.out.println("Révision du budget du service " + service.getNom() + " :");
-        service.reviserBudget(nouveauBudget);
+        while(!service.reviserBudget(nouveauBudget)) {
+            System.out.println("Le budget " + nouveauBudget + " n'est pas valide. Veuillez entrer un nouveau budget :");
+            Scanner scanner = new Scanner(System.in);
+            nouveauBudget = scanner.nextLine();
+            scanner.nextLine();
+            System.out.println();
+        }
     }
 
     // Transfert d'une créature d'un service à un autre

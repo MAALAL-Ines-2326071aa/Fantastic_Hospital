@@ -57,6 +57,7 @@ public class ServiceMed {
         System.out.println("Moral: " + creature.moral + "%");
         if (creature.maladies.isEmpty()) {
             System.out.println("Aucune maladie.");
+            System.out.println();
         } else {
             System.out.print("Maladies: ");
             for (Maladie maladie : creature.maladies) {
@@ -88,13 +89,15 @@ public class ServiceMed {
             System.out.println("Cette créature n'est pas présente dans le service");
         }
     }
-    public void reviserBudget(String nouveauBudget) {
+    public boolean reviserBudget(String nouveauBudget) {
         if (nouveauBudget.equals("inexistant") || nouveauBudget.equals("médiocre")
                 || nouveauBudget.equals("insuffisant") || nouveauBudget.equals("faible")) {
             this.budget = nouveauBudget;
             System.out.println("Le budget a été modifié à : " + nouveauBudget);
+            return true;
         } else {
             System.out.println("Budget invalide");
+            return false;
         }
     }
 

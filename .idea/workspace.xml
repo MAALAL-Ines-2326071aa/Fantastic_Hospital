@@ -4,26 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="correction monter de niveau de maladie a chaque tour">
+    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Elfe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Elfe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/HommeBete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/HommeBete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Meute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Meute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Nain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Nain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Orque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Orque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Reptilien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Reptilien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Zombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hopital/Hopital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hopital/Hopital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Elfe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Elfe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/HommeBete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/HommeBete.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Nain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Nain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Orque.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Orque.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Reptilien.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Reptilien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Vampire.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Vampire.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Zombie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Zombie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/medecins/Medecin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/medecins/Medecin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/CreatureTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CreatureTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/MaladieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MaladieTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/MedecinTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MedecinTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/MeuteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MeuteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ServiceMedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ServiceMedTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +142,7 @@
       <workItem from="1732722848223" duration="15255000" />
       <workItem from="1732971860841" duration="101000" />
       <workItem from="1732971973116" duration="17865000" />
-      <workItem from="1733239856595" duration="2831000" />
+      <workItem from="1733239856595" duration="3773000" />
     </task>
     <task id="LOCAL-00001" summary="test pour meute et lycanthrope">
       <option name="closed" value="true" />
@@ -172,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733223280308</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger">
+      <option name="closed" value="true" />
+      <created>1733242774495</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733242774496</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +187,7 @@
     <MESSAGE value="test pour meute et lycanthrope" />
     <MESSAGE value="Test pour hopital, service, creature, maladie, medecin" />
     <MESSAGE value="correction monter de niveau de maladie a chaque tour" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction monter de niveau de maladie a chaque tour" />
+    <MESSAGE value="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger" />
+    <option name="LAST_COMMIT_MESSAGE" value="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger" />
   </component>
 </project>
