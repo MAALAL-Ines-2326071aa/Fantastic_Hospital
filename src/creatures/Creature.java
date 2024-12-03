@@ -98,16 +98,12 @@ public class Creature {
 
     public void etreSoignee(Maladie maladie) {
         if (this.maladies.contains(maladie)) {
-            if (this.moral == 100) {
-                System.out.println(nomCreature + " est déjà au max et n'a donc pas besoin de soins");
-            } else {
                 this.maladies.remove(maladie);
                 this.moral += 20;
                 if (this.moral > 100) {
                     this.moral = 100;
                 }
                 System.out.println(nomCreature + " est soignée de " + maladie.nomMaladie + " et retrouve du moral : " + this.moral);
-            }
         } else {
             System.out.println(nomCreature + " n'est pas atteinte par " + maladie.nomMaladie);
         }

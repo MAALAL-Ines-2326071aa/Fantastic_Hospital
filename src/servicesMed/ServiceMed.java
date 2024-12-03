@@ -72,6 +72,11 @@ public class ServiceMed {
             System.out.println("Impossible d'ajouter " + creature.getNomCreature() + ": le service est plein.");
         }
     }
+
+    public String getBudget() {
+        return budget;
+    }
+
     public void supprimerCreature(Creature creature){
         if (creatures.remove(creature)) {
             nbCreaturesPresentes--;

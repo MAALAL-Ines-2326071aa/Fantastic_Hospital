@@ -25,6 +25,10 @@ public class Hopital {
         this.medecinsDisponibles = new ArrayList<>();
     }
 
+    public List<Medecin> getMedecinsDisponibles() {
+        return medecinsDisponibles;
+    }
+
     public static Maladie genererMaladieAleatoire() {
             List<Maladie> listeMaladies = Arrays.asList(
                     new Maladie("Maladie débilitante chronique", "MDC", 1, 5),
@@ -383,5 +387,8 @@ public class Hopital {
         }
     }
 
+    public List<ServiceMed> getServices() {
+        return services;
+    }
 }
 

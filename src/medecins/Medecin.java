@@ -89,5 +89,8 @@ public class Medecin {
         }
     }
 
+    public ServiceMed getService() {
+        return service;
+    }
 }
 
