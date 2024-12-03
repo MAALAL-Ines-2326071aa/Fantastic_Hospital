@@ -22,7 +22,7 @@ class MaladieTest {
     @BeforeEach
     void setUp() {
         urgences = new ServiceMed("Urgences", 10, 0, 100, "médiocre");
-        grippe = new Maladie("Grippe", "GRP", 50, 100);
+        grippe = new Maladie("Grippe", "GRP", 2, 10);
 
         this.creature1 = Creature.creerCreature("Elfe","Legolas", "Mâle", 200, 3, 5, Hopital.genererMaladieAleatoire());
         System.out.println(creature1.getMaladies());
@@ -44,27 +44,27 @@ class MaladieTest {
 
     @Test
     void testAggraverAtMaxLevel() {
-        grippe.setNiveauActuel(100);
+        grippe.setNiveauActuel(10);
         grippe.aggraver();
-        assertEquals(100, grippe.getNiveauActuel());
+        assertEquals(10, grippe.getNiveauActuel());
     }
 
     @Test
     void testDiminuerNiveau() {
         grippe.diminuerNiveau();
-        assertEquals(15, grippe.getNiveauActuel());
+        assertEquals(1, grippe.getNiveauActuel());
     }
 
     @Test
     void testDiminuerNiveauBelowZero() {
-        grippe.setNiveauActuel(20);
+        grippe.setNiveauActuel(1);
         grippe.diminuerNiveau();
         assertEquals(0, grippe.getNiveauActuel());
     }
 
     @Test
     void testEstLetale() {
-        grippe.setNiveauActuel(100);
+        grippe.setNiveauActuel(10);
         assertTrue(grippe.estLetale());
     }
 

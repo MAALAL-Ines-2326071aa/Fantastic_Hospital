@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger">
+    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="modif médecin et service pour modifier le budget">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Elfe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Elfe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/HommeBete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/HommeBete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Nain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Nain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Orque.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Orque.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Reptilien.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Reptilien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Vampire.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Vampire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Zombie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Zombie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/medecins/Medecin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/medecins/Medecin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/medecins/Medecin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/medecins/Medecin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maladies/Maladie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maladies/Maladie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/MaladieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MaladieTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +133,7 @@
       <workItem from="1732722848223" duration="15255000" />
       <workItem from="1732971860841" duration="101000" />
       <workItem from="1732971973116" duration="17865000" />
-      <workItem from="1733239856595" duration="3773000" />
+      <workItem from="1733239856595" duration="4409000" />
     </task>
     <task id="LOCAL-00001" summary="test pour meute et lycanthrope">
       <option name="closed" value="true" />
@@ -176,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733242774496</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="modif médecin et service pour modifier le budget">
+      <option name="closed" value="true" />
+      <created>1733243823377</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733243823377</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +187,7 @@
     <MESSAGE value="Test pour hopital, service, creature, maladie, medecin" />
     <MESSAGE value="correction monter de niveau de maladie a chaque tour" />
     <MESSAGE value="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger" />
-    <option name="LAST_COMMIT_MESSAGE" value="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger" />
+    <MESSAGE value="modif médecin et service pour modifier le budget" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif médecin et service pour modifier le budget" />
   </component>
 </project>

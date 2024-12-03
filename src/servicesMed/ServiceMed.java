@@ -50,7 +50,7 @@ public class ServiceMed {
     public void afficherCreatures(Creature creature) {
         System.out.println("Nom: " + creature.getNomCreature());
         System.out.println("Sexe: " + creature.sexe);
-        System.out.println("type: " + creature.getType() + "%");
+        System.out.println("type: " + creature.getType());
         System.out.println("Âge: " + creature.age + " ans");
         System.out.println("Poids: " + creature.poids + " kg");
         System.out.println("Taille: " + creature.taille + " m");

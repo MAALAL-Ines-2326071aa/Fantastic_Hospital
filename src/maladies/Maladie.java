@@ -44,7 +44,7 @@ public class Maladie {
         }
     }
     public void diminuerNiveau() {
-        final int DECREMENT = 35;
+        final int DECREMENT = 1;
 
         if (niveauActuel > 0) {
             niveauActuel -= DECREMENT;
