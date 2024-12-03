@@ -30,15 +30,15 @@ public class Hopital {
     }
 
     public static Maladie genererMaladieAleatoire() {
-            List<Maladie> listeMaladies = Arrays.asList(
-                    new Maladie("Maladie débilitante chronique", "MDC", 1, 5),
-                    new Maladie("Syndrome fear of missing out", "FOMO", 1, 5),
-                    new Maladie("Dépendance aux réseaux sociaux", "DRS", 1, 5),
-                    new Maladie("Porphyrie érythropoïétique congénitale", "PEC", 1, 5),
-                    new Maladie("Zoopathie paraphrénique lycanthropique", "ZPL", 1, 5),
-                    new Maladie("COVID-19", "CVD", 1, 5)
-            );
-            return listeMaladies.get((int) (Math.random() * listeMaladies.size()));
+        List<Maladie> listeMaladies = Arrays.asList(
+                new Maladie("Maladie débilitante chronique", "MDC", 1, 5),
+                new Maladie("Syndrome fear of missing out", "FOMO", 1, 5),
+                new Maladie("Dépendance aux réseaux sociaux", "DRS", 1, 5),
+                new Maladie("Porphyrie érythropoïétique congénitale", "PEC", 1, 5),
+                new Maladie("Zoopathie paraphrénique lycanthropique", "ZPL", 1, 5),
+                new Maladie("COVID-19", "CVD", 1, 5)
+        );
+        return listeMaladies.get((int) (Math.random() * listeMaladies.size()));
     }
 
 
@@ -72,7 +72,7 @@ public class Hopital {
     public void systemeDeTours() {
         Scanner scanner = new Scanner(System.in);
         ServiceMed urgences = services.get(0); // Le service des urgences est le premier
-
+        GestionCompteursTours gestionCompteursTours = new GestionCompteursTours();
         boolean premierTour = true;
 
         while (true) {
@@ -98,6 +98,7 @@ public class Hopital {
                     );
 
                     urgences.ajouterCreature(nouvelleCreature);
+                    gestionCompteursTours.initialiserCompteur(nouvelleCreature);
                 }
 
             }
@@ -119,6 +120,7 @@ public class Hopital {
                 switch (choix) {
                     case 1:
                         afficherServices();
+                        gestionCompteursTours.afficherCompteurs();
                         break;
 
                     case 2:

@@ -83,9 +83,18 @@ public class Lycanthrope extends Creature {
     }
 
     // Methode pour contaminer une autre creature
+    
+    public boolean estContagieuse() {
+        return getMaladies() != null;
+    }
+
     public void contaminer(Creature cible, Maladie maladie) {
-        cible.tomberMalade(maladie);
-        System.out.println(nomCreature + " a contamine " + cible.nomCreature + " avec " + maladie.nomMaladie);
+        if (estContagieuse()) {
+            cible.tomberMalade(maladie);
+            System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
+        } else {
+            System.out.println(nomCreature + " n'est pas contagieux.");
+        }
     }
 
 

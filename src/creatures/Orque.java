@@ -3,7 +3,7 @@ package creatures;
 
 import maladies.Maladie;
 
-public class Orque extends Creature {
+public class Orque extends Creature implements Contagieuse {
 
     private String type;
     public Orque(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie,String type) {
@@ -15,8 +15,18 @@ public class Orque extends Creature {
         return type;
     }
 
+    @Override
+    public boolean estContagieuse() {
+        return getMaladies() != null;
+    }
+
+    @Override
     public void contaminer(Creature cible, Maladie maladie) {
-        cible.tomberMalade(maladie);
-        System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
+        if (estContagieuse()) {
+            cible.tomberMalade(maladie);
+            System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
+        } else {
+            System.out.println(nomCreature + " n'est pas contagieux.");
+        }
     }
 }

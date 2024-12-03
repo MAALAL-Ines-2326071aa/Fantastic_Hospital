@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="modif médecin et service pour modifier le budget">
+      <change afterPath="$PROJECT_DIR$/src/creatures/ClientVIP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/creatures/Contagieuse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/creatures/Demoralisante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/creatures/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/creatures/Regenerante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hopital/GestionCompteursTours.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servicesMed/CentreQuarantaine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servicesMed/Crypte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/medecins/Medecin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/medecins/Medecin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maladies/Maladie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maladies/Maladie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/MaladieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MaladieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Simulation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Elfe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Elfe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/HommeBete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/HommeBete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Nain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Nain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Orque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Orque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Reptilien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Reptilien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Vampire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hopital/Hopital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hopital/Hopital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/medecins/Medecin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/medecins/Medecin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +35,7 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -33,6 +47,7 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2oo075EQsCRjm9w1k7Ab3OKiZ2T" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -76,7 +91,7 @@
       <recent name="medecins" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Simulation.Main" />
       <module name="Fantastic_Hospital" />
@@ -115,8 +130,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -134,6 +149,7 @@
       <workItem from="1732971860841" duration="101000" />
       <workItem from="1732971973116" duration="17865000" />
       <workItem from="1733239856595" duration="4409000" />
+      <workItem from="1733261437213" duration="795000" />
     </task>
     <task id="LOCAL-00001" summary="test pour meute et lycanthrope">
       <option name="closed" value="true" />
@@ -180,6 +196,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="correction jeu" />

@@ -86,8 +86,14 @@ public class Medecin {
         if (source.creatures.contains(creature)) {
             if (destination.creatures.size() < destination.nbMaxCreatures) {
                 source.supprimerCreature(creature);
+                int nbCreaturesAvant = destination.creatures.size();
                 destination.ajouterCreature(creature);
-                System.out.println(creature.getNomCreature() + " a été transférée de " + source.getNom() + " à " + destination.getNom());
+                if (destination.creatures.size() > nbCreaturesAvant) {
+                    System.out.println(creature.getNomCreature() + " a été transférée de " + source.getNom() + " à " + destination.getNom());
+                } else {
+                    System.out.println(creature.getNomCreature() + " n'a pas pu être transférée car elle n'est pas acceptée par le service " + destination.getNom());
+                    source.ajouterCreature(creature);
+                }
             } else {
                 System.out.println("Le service " + destination.getNom() + " est plein. Impossible de transférer " + creature.getNomCreature());
             }

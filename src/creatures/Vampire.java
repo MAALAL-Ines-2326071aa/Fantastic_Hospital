@@ -4,7 +4,7 @@ import maladies.Maladie;
 
 import java.util.List;
 
-public class Vampire extends Creature {
+public class Vampire extends Creature implements Contagieuse, Regenerante, Demoralisante {
 
     private String type;
     public Vampire(String nomCreature, String sexe, double poids, double taille, int age,Maladie maladie,String type) {
@@ -16,9 +16,19 @@ public class Vampire extends Creature {
         return type;
     }
 
+    @Override
+    public boolean estContagieuse() {
+        return getMaladies() != null;
+    }
+
+    @Override
     public void contaminer(Creature cible, Maladie maladie) {
-        cible.tomberMalade(maladie);
-        System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
+        if (estContagieuse()) {
+            cible.tomberMalade(maladie);
+            System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
+        } else {
+            System.out.println(nomCreature + " n'est pas contagieux.");
+        }
     }
 
     public void demoraliser(List<Creature> creaturesDansLeService) {
@@ -41,4 +51,3 @@ public class Vampire extends Creature {
         this.maladies.clear();
     }
 }
-

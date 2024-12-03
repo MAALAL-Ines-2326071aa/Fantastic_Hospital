@@ -2,6 +2,7 @@ package Simulation;
 
 import hopital.Hopital;
 import medecins.Medecin;
+import servicesMed.CentreQuarantaine;
 import servicesMed.ServiceMed;
 import creatures.Creature;
 import maladies.Maladie;
@@ -16,8 +17,10 @@ public class Main {
         Hopital hopital = new Hopital("Hôpital Fantastique", 3);
         ServiceMed urgences = new ServiceMed("Urgences", 10, 0, 100, "médiocre");
         ServiceMed quarantaine = new ServiceMed("Quarantaine", 5, 0, 80, "faible");
+        CentreQuarantaine MPT = new CentreQuarantaine("40aine", 7, 23, "faible", false);
         hopital.ajouterService(urgences);
         hopital.ajouterService(quarantaine);
+        hopital.ajouterService(MPT);
         Creature creature1= Creature.creerCreature("Elfe", "Legolas", "Mâle", 100, 100, 5, genererMaladieAleatoire());
         Creature creature2=Creature.creerCreature("Nain", "Damien", "Mâle", 100, 10, 5, genererMaladieAleatoire());
         Medecin medecin1 = new Medecin("Dr. John", "Homme", 45, creature1);

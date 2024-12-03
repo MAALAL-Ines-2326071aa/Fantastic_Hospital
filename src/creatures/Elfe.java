@@ -4,7 +4,7 @@ import maladies.Maladie;
 
 import java.util.List;
 
-public class Elfe extends Creature {
+public class Elfe extends Creature implements Demoralisante, ClientVIP {
     private String type;
     public Elfe(String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie,String type) {
         super(type,nomCreature, sexe, poids, taille, age,maladie);
@@ -38,4 +38,16 @@ public class Elfe extends Creature {
             }
         }
     }
+    public void verifierAttente(int tempsAttente) {
+        if (tempsAttente > 10) { // Si l'attente dépasse 10 unités de temps
+            System.out.println("L'elfe " + nomCreature + " est exaspéré par l'attente !");
+            this.setMoral(this.getMoral() - 30); // Diminue fortement le moral
+            if (this.getMoral() < 0) {
+                this.setMoral(0); // Moral minimum à 0
+            }
+        }
+    }
 }
+
+/////////////ouais ouasi 22222
+
