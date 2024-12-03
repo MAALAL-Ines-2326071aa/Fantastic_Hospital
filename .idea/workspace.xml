@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="test pour meute et lycanthrope">
-      <change afterPath="$PROJECT_DIR$/src/test/CreatureTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/HopitalTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/MaladieTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/MedecinTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/ServiceMedTest.java" afterDir="false" />
+    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="Test pour hopital, service, creature, maladie, medecin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/Simulation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/medecins/Medecin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/medecins/Medecin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Creature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hopital/Hopital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hopital/Hopital.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/medecins/Medecin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/medecins/Medecin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicesMed/ServiceMed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/MaladieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MaladieTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +77,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Simulation.Main" />
+      <module name="Fantastic_Hospital" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Simulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MeuteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Fantastic_Hospital" />
       <extension name="coverage">
@@ -105,6 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MeuteTest" />
       </list>
     </recent_temporary>
@@ -129,7 +132,7 @@
       <workItem from="1732039521155" duration="1821000" />
       <workItem from="1732722848223" duration="15255000" />
       <workItem from="1732971860841" duration="101000" />
-      <workItem from="1732971973116" duration="14086000" />
+      <workItem from="1732971973116" duration="16874000" />
     </task>
     <task id="LOCAL-00001" summary="test pour meute et lycanthrope">
       <option name="closed" value="true" />
@@ -139,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733064050617</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test pour hopital, service, creature, maladie, medecin">
+      <option name="closed" value="true" />
+      <created>1733220667388</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733220667388</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +159,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="correction jeu" />
     <MESSAGE value="test pour meute et lycanthrope" />
-    <option name="LAST_COMMIT_MESSAGE" value="test pour meute et lycanthrope" />
+    <MESSAGE value="Test pour hopital, service, creature, maladie, medecin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test pour hopital, service, creature, maladie, medecin" />
   </component>
 </project>

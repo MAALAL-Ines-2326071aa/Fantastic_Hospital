@@ -73,27 +73,31 @@ public class Hopital {
         Scanner scanner = new Scanner(System.in);
         ServiceMed urgences = services.get(0); // Le service des urgences est le premier
 
+        boolean premierTour = true;
+
         while (true) {
             System.out.println("\n--- Nouveau tour ---");
-            System.out.println("Des créatures arrivent aux urgences...");
-            medecinsDisponibles = new ArrayList<>(medecins);
+            if(!premierTour){
+                System.out.println("Des créatures arrivent aux urgences...");
+                medecinsDisponibles = new ArrayList<>(medecins);
 
-            // Ajout aléatoire de créatures avec une maladie
-            for (int i = 0; i < 3; i++) {
-                Maladie maladie = Hopital.genererMaladieAleatoire();
-                String type = (Math.random() < 0.5) ? "Mythique" : "Légendaire";
-                Creature nouvelleCreature = new Creature(
-                        "Créature" + (urgences.creatures.size() + 1),
-                        (Math.random() < 0.5) ? "Mâle" : "Femelle",
-                        Math.round(50 + Math.random() * 50),
-                        Math.round(150 + Math.random() * 50),
-                        (int) (10 + Math.random() * 50),
-                        maladie,
-                        type
-                );
-                urgences.ajouterCreature(nouvelleCreature);
+                // Ajout aléatoire de créatures avec une maladie
+                for (int i = 0; i < 3; i++) {
+                    Maladie maladie = Hopital.genererMaladieAleatoire();
+                    String type = (Math.random() < 0.5) ? "Mythique" : "Légendaire";
+                    Creature nouvelleCreature = new Creature(
+                            "Créature" + (urgences.creatures.size() + 1),
+                            (Math.random() < 0.5) ? "Mâle" : "Femelle",
+                            Math.round(50 + Math.random() * 50),
+                            Math.round(150 + Math.random() * 50),
+                            (int) (10 + Math.random() * 50),
+                            maladie,
+                            type
+                    );
+                    urgences.ajouterCreature(nouvelleCreature);
+                }
             }
-
+            premierTour=false;
 
             boolean finTour = false; // Variable pour contrôler la fin du tour
 
@@ -131,13 +135,12 @@ public class Hopital {
                                 List<Maladie> maladies = creature.getMaladies();
                                 if (!maladies.isEmpty()) {
                                     Maladie maladieExistante = maladies.get((int) (Math.random() * maladies.size()));
+                                    maladieExistante.aggraver();
                                     System.out.println("La maladie " + maladieExistante.getNomMaladie() + " de " + creature.getNomCreature() + " s'est aggravée.");
+
                                 } else {
-                                    Maladie nouvelleMaladie = (Math.random() < 0.5) ?
-                                            new Maladie("Fièvre", "FR", 1, 5) :
-                                            new Maladie("Grippe", "GR", 1, 5);
-                                    creature.ajouterMaladie(nouvelleMaladie);
-                                    System.out.println("La créature " + creature.getNomCreature() + " a contracté une nouvelle maladie : " + nouvelleMaladie.getNomMaladie() + ".");
+                                    creature.ajouterMaladie(genererMaladieAleatoire());
+                                    System.out.println("La créature " + creature.getNomCreature() + " a contracté une nouvelle maladie : " + creature.getMaladies().getFirst().getNomMaladie() + ".");
                                 }
                             }
                         }

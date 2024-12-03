@@ -37,6 +37,7 @@ public class ServiceMed {
         System.out.println("Nombre de créatures présentes: " + nbCreaturesPresentes);
         System.out.println("Superficie du service: " + superficie + " m²");
         System.out.println("Budget: " + budget);
+        System.out.println();
         if (creatures.isEmpty()) {
             System.out.println("Aucune créature présente dans le service.");
         } else {
@@ -58,8 +59,9 @@ public class ServiceMed {
         } else {
             System.out.print("Maladies: ");
             for (Maladie maladie : creature.maladies) {
-                System.out.print(maladie.getNomMaladie() + " ");
+                System.out.print(maladie.getNomMaladie() + " " + maladie.getNiveauActuel());
             }
+            System.out.println();
             System.out.println();
         }
     }
