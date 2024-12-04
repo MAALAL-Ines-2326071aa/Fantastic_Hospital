@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="correction pour le niveau de maladie et maladie test">
+    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="modif action medecin dans hopital">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Lycanthrope.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Zombie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Zombie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/hopital/Hopital.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/servicesMed/ServiceMed.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hopital/Hopital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hopital/Hopital.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +75,7 @@
       <recent name="medecins" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Simulation.Main" />
       <module name="Fantastic_Hospital" />
@@ -197,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733329240334</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="modif action medecin dans hopital">
+      <option name="closed" value="true" />
+      <created>1733333287908</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733333287908</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +227,7 @@
     <MESSAGE value="modif médecin et service pour modifier le budget" />
     <MESSAGE value="correction pour le niveau de maladie et maladie test" />
     <MESSAGE value="Correction creature test, modif meute et creature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction creature test, modif meute et creature" />
+    <MESSAGE value="modif action medecin dans hopital" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif action medecin dans hopital" />
   </component>
 </project>

@@ -1,6 +1,7 @@
 package hopital;
 
 import creatures.Demoralisante;
+import creatures.Lycanthrope;
 import maladies.Maladie;
 import servicesMed.ServiceMed;
 import medecins.Medecin;
@@ -156,8 +157,35 @@ public class Hopital {
                                     System.out.println("La créature " + creature.getNomCreature() + " a contracté une nouvelle maladie : " + creature.getMaladies().getFirst().getNomMaladie() + ".");
                                 }
 
+                                // Actions spécifiques aux lycanthropes
+                                if (creature instanceof Lycanthrope) {
+                                    Lycanthrope lycan = (Lycanthrope) creature;
+
+                                    // Transformation aléatoire
+                                    if (Math.random() < 0.2) { // 20% de chance de transformation
+                                        lycan.transformerEnHumain();
+                                        System.out.println(lycan.getNomCreature() + " s'est transformé en humain !");
+                                    }
+
+                                    // Hurlements pouvant influencer les autres créatures
+                                    if (Math.random() < 0.3) { // 30% de chance de hurler
+                                        String message = Math.random() < 0.5 ? "Domination" : "Soumission";
+                                        lycan.hurlerLycanthrope(message);
+                                        System.out.println(lycan.getNomCreature() + " pousse un hurlement de " + message + ".");
+
+                                        // Influence sur le moral des autres créatures
+                                        for (Creature autre : service.creatures) {
+                                            if (autre != lycan) {
+                                                autre.setMoral(Math.max(0, autre.getMoral() - 5));
+                                                System.out.println("Le moral de " + autre.getNomCreature() + " diminue à cause du hurlement.");
+                                            }
+                                        }
+                                    }
+                                }
+
+
                                 // Vérifier le trépas basé uniquement sur le moral et les maladies
-                                if (creature.getMoral() <= 0 || creature.getMaladies().size() >= 5) {
+                                if (creature.getMoral() <= 0 || creature.getMaladies().stream().anyMatch(m -> m.getNiveauActuel() >= m.niveauMax)) {
                                     System.out.println(creature.getNomCreature() + " a trépassé !");
                                     if (creature instanceof Demoralisante) {
                                         ((Demoralisante) creature).demoraliser(service.creatures);
