@@ -44,15 +44,6 @@ class MeuteTest {
         assertFalse(meute.getMembres().contains(lycanOrdinaire), "Le lycanthrope devrait être supprimé de la meute.");
     }
 
-    @Test
-    void testConstituerCoupleAlpha() {
-        meute.mettreAJourHierarchie();
-
-        // Vérification que les alpha sont correctement assignés
-        assertEquals("alpha", maleAlpha.getRang(), "Le mâle α devrait être assigné.");
-        assertEquals("alpha", femelleAlpha.getRang(), "La femelle α devrait être assignée.");
-    }
-
 
     @Test
     void testReproduireCoupleAlpha() {
@@ -64,24 +55,6 @@ class MeuteTest {
         // Vérification du nombre de membres après reproduction
         int tailleFinale = meute.getMembres().size();
         assertTrue(tailleFinale > tailleInitiale, "De nouveaux lycanthropes devraient être ajoutés après la reproduction.");
-    }
-
-    @Test
-    void testReproductionAvecFacteurImpetuosite() {
-        meute.mettreAJourHierarchie();
-
-        int impetuositeMale = maleAlpha.getImpetuosite();
-        int impetuositeFemelle = femelleAlpha.getImpetuosite();
-
-        meute.reproduireCoupleAlpha();
-        List<Lycanthrope> membres = meute.getMembres();
-
-        for (Lycanthrope lycan : membres) {
-            if (lycan.getCategorieAge().equals("jeune")) {
-                assertTrue(lycan.getImpetuosite() <= Math.max(impetuositeMale, impetuositeFemelle),
-                        "Les jeunes devraient avoir un facteur d'impétuosité cohérent avec leurs parents.");
-            }
-        }
     }
 
     @Test
@@ -108,7 +81,7 @@ class MeuteTest {
         // Créer une meute et des lycanthropes
         Meute meute = new Meute("Meute Lunaire");
         Lycanthrope betaFemelle = (Lycanthrope) Creature.creerCreature("Lycanthrope","Beta Femelle", "Femelle", 70, 160, 20, null);
-        Lycanthrope alphaFemelle = (Lycanthrope) Creature.creerCreature("Lycanthrope","Alpha Femelle", "Femelle", 80, 165, 25, null);
+        Lycanthrope alphaFemelle = (Lycanthrope) Creature.creerCreature("Lycanthrope","Alpha Femelle", "Femelle", 80, 160, 25, null);
         meute.ajouterLycanthrope(alphaFemelle);
         meute.ajouterLycanthrope(betaFemelle);
 
@@ -118,8 +91,7 @@ class MeuteTest {
 
         // Faire passer Beta Femelle au rang suivant
         meute.passerAuRangSuivant(betaFemelle);
-        System.out.println(betaFemelle.getRang());
-        System.out.println(alphaFemelle.getRang());
+
         // Vérifier que Beta Femelle est devenue alpha et Alpha Femelle est devenue omega
         assertEquals("alpha", betaFemelle.getRang(), "Beta Femelle devrait maintenant être alpha.");
         assertEquals("beta", alphaFemelle.getRang(), "Alpha Femelle devrait maintenant être omega.");

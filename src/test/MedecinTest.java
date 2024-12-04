@@ -87,7 +87,5 @@ class MedecinTest {
     void testExaminerService() {
         // Test de l'examen d'un service
         medecin.examinerService(service);
-        // Le test est plus fonctionnel, en effet il se base sur l'affichage.
-        // Pas d'affirmation ici, mais la méthode devrait exécuter correctement l'affichage des caractéristiques du service.
     }
 }

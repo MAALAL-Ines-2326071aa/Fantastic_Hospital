@@ -201,7 +201,7 @@ public class Meute {
 
 
 
-    private void constituerCoupleAlpha() {
+    public void constituerCoupleAlpha() {
         Lycanthrope nouveauAlphaMale = membres.stream()
                 .filter(l -> l.getCategorieAge().equals("adulte") && l.sexe.equals("Mâle"))
                 .max(Comparator.comparing(Lycanthrope::getForce))
