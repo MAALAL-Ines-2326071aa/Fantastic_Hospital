@@ -4,6 +4,8 @@ import creatures.Demoralisante;
 import creatures.Lycanthrope;
 import creatures.Meute;
 import maladies.Maladie;
+import servicesMed.CentreQuarantaine;
+import servicesMed.Crypte;
 import servicesMed.ServiceMed;
 import medecins.Medecin;
 import creatures.Creature;
@@ -70,8 +72,28 @@ public class Hopital {
         medecinsDisponibles.add(medecin);
         System.out.println("Médecin " + medecin.nom + " ajouté à l'hôpital.");
     }
+    public void creerServicesParType() {
+        // Liste des types de créatures
+        String[] typesCreatures = {"Elfe", "Orque", "HommeBete", "Lycanthrope", "Nain", "Vampire", "Zombie", "Reptilien"};
 
-    // Système de tours
+        // Créer un service pour chaque type de créature (ServiceMed pour chaque type)
+        for (String type : typesCreatures) {
+            ServiceMed serviceMed = new ServiceMed(type + " Service", 10, 0, 100, "Budget pour " + type);
+            services.add(serviceMed);
+            System.out.println("Le service pour " + type + " a été créé : " + serviceMed.getNom());
+        }
+
+        // Créer une seule Crypte (instance unique)
+        Crypte crypte = new Crypte("Crypte Centrale", 10, 0, 100, "Budget Crypte", 5, 18.0);
+        services.add(crypte);
+        System.out.println("La Crypte centrale a été créée : " + crypte.getNom());
+
+        // Créer un seul Centre de Quarantaine (instance unique)
+        CentreQuarantaine centreQuarantaine = new CentreQuarantaine("Centre de Quarantaine", 10, 100, "Budget Quarantaine", true);
+        services.add(centreQuarantaine);
+        System.out.println("Le Centre de Quarantaine a été créé : " + centreQuarantaine.getNom());
+    }
+
     // Système de tours
     public void systemeDeTours() {
         Scanner scanner = new Scanner(System.in);
@@ -79,12 +101,14 @@ public class Hopital {
         GestionCompteursTours gestionCompteursTours = new GestionCompteursTours();
 
         boolean premierTour = true;
-
+        creerServicesParType();
         while (true) {
             System.out.println("\n--- Nouveau tour ---");
             if (!premierTour) {
                 System.out.println("Des créatures arrivent aux urgences...");
                 medecinsDisponibles = new ArrayList<>(medecins);
+
+
 
                 // Ajout aléatoire de créatures avec une maladie
                 for (int i = 0; i < 3; i++) {
@@ -210,17 +234,8 @@ public class Hopital {
                                 }
                             }
 
-                            // Mise à jour des hiérarchies des meutes
-                            for (Lycanthrope lycan : service.creatures.stream().filter(c -> c instanceof Lycanthrope).map(c -> (Lycanthrope) c).toList()) {
-                                if (lycan.getMeute() != null) {
-                                    lycan.getMeute().mettreAJourHierarchie();
-                                }
-                            }
-
-
                             // Supprimer les créatures trépassées
                             service.creatures.removeAll(creaturesTrepasses);
-                            service.nbCreaturesPresentes= service.nbCreaturesPresentes-creaturesTrepasses.size();
                         }
 
                         finTour = true;
@@ -286,8 +301,6 @@ public class Hopital {
         boolean actionEffectuee = false;
 
         while (!actionEffectuee) {
-
-
             System.out.println("Actions possibles :");
             System.out.println("1. Soigner une créature");
             System.out.println("2. Réviser le budget d'un service");
@@ -360,7 +373,8 @@ public class Hopital {
                         } else {
                             System.out.println("Choix invalide.");
                         }
-                    } while (choixValide == false);
+                    } while (!choixValide);
+
                     choixValide = false;
                     int indexDestination;
                     do {
@@ -371,24 +385,42 @@ public class Hopital {
                         } else {
                             System.out.println("Choix invalide.");
                         }
-                    } while (choixValide == false);
+                    } while (!choixValide);
+
                     if (indexSource >= 1 && indexSource <= services.size() && indexDestination >= 1 && indexDestination <= services.size()) {
                         ServiceMed source = services.get(indexSource - 1);
                         ServiceMed destination = services.get(indexDestination - 1);
-                        choixValide = false;
-                        do {
-                            System.out.println("Sélectionnez une créature à transférer :");
-                            for (int i = 0; i < source.creatures.size(); i++) {
-                                System.out.println((i + 1) + ". " + source.creatures.get(i).getNomCreature());
-                            }
-                            int choixCreature = scanner.nextInt();
-                            if (choixCreature >= 1 && choixCreature <= source.creatures.size()) {
-                                medecin.transfererCreature(source, destination, source.creatures.get(choixCreature - 1));
-                                choixValide = true;
+
+                        // Vérification de la compatibilité des types
+                        System.out.println("Sélectionnez une créature à transférer :");
+                        for (int i = 0; i < source.creatures.size(); i++) {
+                            System.out.println((i + 1) + ". " + source.creatures.get(i).getNomCreature());
+                        }
+
+                        int choixCreature = scanner.nextInt();
+                        if (choixCreature >= 1 && choixCreature <= source.creatures.size()) {
+                            Creature creature = source.creatures.get(choixCreature - 1);
+
+                            // Cas spécifiques pour Crypte et Centre de Quarantaine
+                            if (destination instanceof Crypte) {
+                                ((Crypte) destination).ajouterCreature(creature);
+                            } else if (destination instanceof CentreQuarantaine) {
+                                ((CentreQuarantaine) destination).ajouterCreature(creature);
                             } else {
-                                System.out.println("Choix invalide.");
+                                // Vérification standard de la correspondance des types
+                                String typeCreature = creature.getType(); // On récupère le type de la créature
+                                String typeServiceDestination = Medecin.getServiceType(destination); // On récupère le type du service de destination
+                                if (typeCreature.equals(typeServiceDestination)) {
+                                    // Si les types correspondent, on effectue le transfert
+                                    medecin.transfererCreature(source, destination, creature);
+                                    System.out.println("Créature transférée.");
+                                } else {
+                                    System.out.println("Erreur : Le type de la créature ne correspond pas au type du service destination.");
+                                }
                             }
-                        } while (choixValide == false);
+                        } else {
+                            System.out.println("Choix invalide.");
+                        }
                         actionEffectuee = true;
                     } else {
                         System.out.println("Choix invalide.");
