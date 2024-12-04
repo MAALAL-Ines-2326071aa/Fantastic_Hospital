@@ -236,10 +236,9 @@ public class Hopital {
 
 
             System.out.println("Actions possibles :");
-            System.out.println("1. Examiner un service");
-            System.out.println("2. Soigner une créature");
-            System.out.println("3. Réviser le budget d'un service");
-            System.out.println("4. Transférer une créature entre services");
+            System.out.println("1. Soigner une créature");
+            System.out.println("2. Réviser le budget d'un service");
+            System.out.println("3. Transférer une créature entre services");
             System.out.print("Votre choix : ");
 
             int choixAction = scanner.nextInt();
@@ -249,23 +248,6 @@ public class Hopital {
                 case 1:
                     boolean choixValide = false;
                     int indexService;
-                    do {
-                        System.out.println("Choisissez un service à examiner :");
-                        afficherServicesAvecIndex();
-                        indexService = scanner.nextInt();
-
-                        if (indexService >= 1 && indexService <= services.size()) {
-                            medecin.examinerService(services.get(indexService - 1));
-                            choixValide = true;
-                        } else {
-                            System.out.println("Choix invalide. Réessayer");
-                        }
-                    } while (choixValide == false);
-                    actionEffectuee = true;
-                    break;
-
-                case 2:
-                    choixValide = false;
                     do {
                         System.out.println("Choisissez un service à soigner :");
                         afficherServicesAvecIndex();
@@ -292,7 +274,7 @@ public class Hopital {
                     actionEffectuee = true;
                     break;
 
-                case 3:
+                case 2:
                     choixValide = false;
                     do {
                         System.out.println("Choisissez un service pour réviser le budget :");
@@ -311,7 +293,7 @@ public class Hopital {
                     actionEffectuee = true;
                     break;
 
-                case 4:
+                case 3:
                     System.out.println("Transfert de créatures entre services :");
                     afficherServicesAvecIndex();
                     choixValide = false;
