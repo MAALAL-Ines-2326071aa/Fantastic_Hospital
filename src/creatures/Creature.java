@@ -148,7 +148,7 @@ public class Creature {
             case "Nain":
                 return new Nain(nom, sexe, moral, poids, age, maladie,type);
             case "Lycanthrope":
-                return new Lycanthrope(type,nom, sexe, moral, poids, age, maladie, Math.random()>0.5 ? "jeune":"vieux", (int) (Math.random()*10),(int) (Math.random()*10), Math.random()<0.5 ? "omega": "beta", (int) (Math.random()*10) );
+                return new Lycanthrope(type,nom, sexe, moral, poids, age, maladie, age<50 ? "jeune":"vieux", (int) (Math.random()*10),(int) (Math.random()*10), poids<75 ? "omega": "beta", (int) (Math.random()*10) );
             case "Orque":
                 return new Orque(nom, sexe, moral, poids, age, maladie,type);
             case "Zombie":

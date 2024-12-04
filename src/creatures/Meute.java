@@ -25,6 +25,15 @@ public class Meute {
     // Ajouter un lycanthrope à la meute
     public void ajouterLycanthrope(Lycanthrope lycan) {
         if (!membres.contains(lycan)) {
+            if (alphaMale == null && lycan.getSexe().equals("Mâle")) {
+                lycan.setRang("alpha");
+                alphaMale = lycan;
+            }
+            if (alphaFemelle == null && lycan.getSexe().equals("Femelle")) {
+                lycan.setRang("alpha");
+                alphaFemelle = lycan;
+            }
+
             membres.add(lycan);
             lycan.rejoindreMeute(this); // Met à jour la référence de la meute dans le lycan
         }
@@ -239,18 +248,13 @@ public class Meute {
 
         for (int i = 0; i < nbPortee; i++) {
             String rang = membres.stream().anyMatch(l -> l.getRang().equals("beta")) ? "gamma" : "beta";
-            Lycanthrope jeune = new Lycanthrope("Lycanthrope",
+            Lycanthrope jeune = (Lycanthrope) Creature.creerCreature("Lycanthrope",
                     "Jeune" + (i + 1),
                     random.nextBoolean() ? "Mâle" : "Femelle",
                     10 + random.nextInt(10),
                     50 + random.nextInt(20),
                     0,
-                    null, // Pas de maladie
-                    "jeune",
-                    random.nextInt(5), // Force aleatoire
-                    0,
-                    rang,
-                    random.nextInt(5) // Impetuosite aleatoire
+                    null // Pas de maladie
             );
             ajouterLycanthrope(jeune);
             System.out.println(jeune.nomCreature + " est ne avec le rang " + rang + ".");

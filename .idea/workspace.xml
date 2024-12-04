@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="modif médecin et service pour modifier le budget">
-      <change afterPath="$PROJECT_DIR$/src/creatures/ClientVIP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/creatures/Contagieuse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/creatures/Demoralisante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/creatures/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/creatures/Regenerante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hopital/GestionCompteursTours.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servicesMed/CentreQuarantaine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servicesMed/Crypte.java" afterDir="false" />
+    <list default="true" id="fe91cec1-655d-482f-9d6b-3229985fa83d" name="Changes" comment="correction pour le niveau de maladie et maladie test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Simulation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Simulation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Elfe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Elfe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/HommeBete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/HommeBete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Lycanthrope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Nain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Nain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Orque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Orque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Reptilien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Reptilien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creatures/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hopital/Hopital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hopital/Hopital.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/medecins/Medecin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/medecins/Medecin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fantastic_Hospital/creatures/Creature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Creature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/creatures/Meute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creatures/Meute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/MeuteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MeuteTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +77,7 @@
       <recent name="medecins" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Simulation.Main" />
       <module name="Fantastic_Hospital" />
@@ -150,6 +136,7 @@
       <workItem from="1732971973116" duration="17865000" />
       <workItem from="1733239856595" duration="4409000" />
       <workItem from="1733261437213" duration="795000" />
+      <workItem from="1733239856595" duration="4575000" />
     </task>
     <task id="LOCAL-00001" summary="test pour meute et lycanthrope">
       <option name="closed" value="true" />
@@ -191,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733243823377</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="correction pour le niveau de maladie et maladie test">
+      <option name="closed" value="true" />
+      <created>1733251591223</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733251591223</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +210,7 @@
     <MESSAGE value="correction monter de niveau de maladie a chaque tour" />
     <MESSAGE value="possibilité de créer des creature de tous les type mais probleme dans testMeute a corriger" />
     <MESSAGE value="modif médecin et service pour modifier le budget" />
-    <option name="LAST_COMMIT_MESSAGE" value="modif médecin et service pour modifier le budget" />
+    <MESSAGE value="correction pour le niveau de maladie et maladie test" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction pour le niveau de maladie et maladie test" />
   </component>
 </project>

@@ -8,21 +8,21 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 class MeuteTest {
     private Meute meute;
-    private Creature maleAlpha;
-    private Creature femelleAlpha;
-    private Creature lycanOrdinaire;
+    private Lycanthrope maleAlpha;
+    private Lycanthrope femelleAlpha;
+    private Lycanthrope lycanOrdinaire;
 
     @BeforeEach
     void setUp() {
         meute = new Meute("Meute Sauvage");
 
         // Création des lycanthropes
-        this.maleAlpha = Creature.creerCreature("Lycanthrope","AlphaM", "Mâle", 90, 180, 30, null);
-        this.femelleAlpha = Creature.creerCreature("Lycanthrope","AlphaF", "Femelle", 80, 170, 28, null);
-        this.lycanOrdinaire = Creature.creerCreature("Lycanthorpe", "Gamma", "Mâle", 70, 160, 20, null);
+        this.maleAlpha = (Lycanthrope) Creature.creerCreature("Lycanthrope","AlphaM", "Mâle", 90, 180, 30, null);
+        this.femelleAlpha = (Lycanthrope) Creature.creerCreature("Lycanthrope","AlphaF", "Femelle", 80, 170, 28, null);
+        this.lycanOrdinaire = (Lycanthrope) Creature.creerCreature("Lycanthrope", "Gamma", "Mâle", 70, 160, 20, null);
 
         // Ajout initial des membres
         meute.ajouterLycanthrope(maleAlpha);
@@ -32,7 +32,7 @@ class MeuteTest {
 
     @Test
     void testAjouterLycanthrope() {
-        Lycanthrope nouveauLycan = Creature.creerCreature("Lycanthrope","Nouveau", "Mâle", 60, 150.0, 15, null);
+        Lycanthrope nouveauLycan = (Lycanthrope) Creature.creerCreature("Lycanthrope","Nouveau", "Mâle", 60, 150, 15, null);
         meute.ajouterLycanthrope(nouveauLycan);
 
         assertTrue(meute.getMembres().contains(nouveauLycan), "Le nouveau lycanthrope devrait être ajouté à la meute.");
@@ -88,8 +88,7 @@ class MeuteTest {
     void testGererSolitaires() {
         // Création d'une meute et d'un lycanthrope
         Meute meute = new Meute("Meute Lunaire");
-        Lycanthrope lycan = new Lycanthrope("Nouveau", "Mâle", 60.0, 150.0, 15, null,
-                "Lycanthrope", "jeune", 25, 3, "omega", 2);
+        Lycanthrope lycan = (Lycanthrope) Creature.creerCreature("Lycanthrope","Nouveau", "Mâle", 60, 150, 15, null);
         meute.ajouterLycanthrope(lycan);
 
         // Vérifier que le lycan est bien dans la meute
@@ -108,12 +107,10 @@ class MeuteTest {
     void testRangSuivant() {
         // Créer une meute et des lycanthropes
         Meute meute = new Meute("Meute Lunaire");
-        Lycanthrope betaFemelle = new Lycanthrope("Beta Femelle", "Femelle", 70.0, 160.0, 20, null,
-                "Lycanthrope", "adulte", 20, 3, "beta", 1);
-        Lycanthrope alphaFemelle = new Lycanthrope("Alpha Femelle", "Femelle", 80.0, 165.0, 25, null,
-                "Lycanthrope", "adulte", 30, 5, "alpha", 1);
-        meute.ajouterLycanthrope(betaFemelle);
+        Lycanthrope betaFemelle = (Lycanthrope) Creature.creerCreature("Lycanthrope","Beta Femelle", "Femelle", 70, 160, 20, null);
+        Lycanthrope alphaFemelle = (Lycanthrope) Creature.creerCreature("Lycanthrope","Alpha Femelle", "Femelle", 80, 165, 25, null);
         meute.ajouterLycanthrope(alphaFemelle);
+        meute.ajouterLycanthrope(betaFemelle);
 
         // Vérifier les rangs initiaux
         assertEquals("beta", betaFemelle.getRang(), "Beta Femelle devrait initialement être beta.");
@@ -129,4 +126,4 @@ class MeuteTest {
     }
 
 
-}*/
+}
