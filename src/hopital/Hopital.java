@@ -234,8 +234,16 @@ public class Hopital {
                                 }
                             }
 
+                            // Mise à jour des hiérarchies des meutes
+                            for (Lycanthrope lycan : service.creatures.stream().filter(c -> c instanceof Lycanthrope).map(c -> (Lycanthrope) c).toList()) {
+                                if (lycan.getMeute() != null) {
+                                    lycan.getMeute().mettreAJourHierarchie();
+                                }
+                            }
+
                             // Supprimer les créatures trépassées
                             service.creatures.removeAll(creaturesTrepasses);
+                            service.nbCreaturesPresentes= service.nbCreaturesPresentes-creaturesTrepasses.size();
                         }
 
                         finTour = true;

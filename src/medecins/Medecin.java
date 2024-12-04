@@ -56,18 +56,6 @@ public class Medecin {
         }
     }
 
-    // Soigner toutes les créatures dans un service
-    public void soignerService(ServiceMed service) {
-        System.out.println("Médecin " + nom + " soigne les créatures du service : " + service.getNom());
-        for (Creature creature : service.creatures) {
-            if (!creature.getMaladies().isEmpty()) {
-                creature.getMaladies().clear();
-                System.out.println(creature.getNomCreature() + " a été soignée.");
-            } else {
-                System.out.println(creature.getNomCreature() + " n'a aucune maladie.");
-            }
-        }
-    }
 
     // Révision du budget d'un service
     public void reviserBudget(ServiceMed service, String nouveauBudget) {
