@@ -1,4 +1,4 @@
-### **Hôpital Fantastique et Créatures**
+### **Hôpital Fantastique**
 
 ---
 
