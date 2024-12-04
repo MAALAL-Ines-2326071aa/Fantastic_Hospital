@@ -12,10 +12,10 @@ public class Medecin {
     public String nom;
     public String sexe;
     public int age;
-    public Creature type;
+    public String type;
     private ServiceMed service;
 
-    public Medecin(String nom, String sexe, int age, Creature type) {
+    public Medecin(String nom, String sexe, int age, String type) {
         this.nom = nom;
         this.sexe = sexe;
         this.age = age;

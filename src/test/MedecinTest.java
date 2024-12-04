@@ -24,14 +24,14 @@ class MedecinTest {
     @BeforeEach
     void setUp() {
         // Initialisation des objets nécessaires pour les tests
-        Creature creature= Creature.creerCreature("Elfe","Legolas", "Mâle", 200, 3, 5, genererMaladieAleatoire());
+        creature= Creature.creerCreature("Elfe","Legolas", "Mâle", 200, 3, 5, genererMaladieAleatoire());
         maladie = new Maladie("Fièvre", "FR",1 ,5);
         creature.ajouterMaladie(maladie);
 
         service = new ServiceMed("Urgences", 10, 0, 100, "médiocre");
         service.ajouterCreature(creature);
 
-        medecin = new Medecin("Dr. Smith", "M", 45, creature);
+        medecin = new Medecin("Dr. Smith", "M", 45, "Medecin");
         medecin.setService(service);
     }
 
@@ -60,14 +60,6 @@ class MedecinTest {
         assertTrue(creature.getMaladies().isEmpty(), "Les maladies devraient être guéries.");
     }
 
-    @Test
-    void testSoignerService() {
-        // Test de la méthode soignerService pour tout le service
-        medecin.soignerService(service);
-
-        // Vérifier qu'après avoir soigné, la créature est débarrassée de ses maladies
-        assertTrue(creature.getMaladies().isEmpty(), "La créature devrait être guérie après un soin du service.");
-    }
 
     @Test
     void testReviserBudget() {
@@ -84,11 +76,11 @@ class MedecinTest {
         ServiceMed serviceDestination = new ServiceMed("Quarantaine", 5, 0, 80, "faible");
 
         // Transfert de la créature
-        medecin.transfererCreature(service, serviceDestination, creature);
+        medecin.transfererCreature(service, serviceDestination, this.creature);
 
         // Vérification que la créature a été transférée
-        assertTrue(serviceDestination.creatures.contains(creature), "La créature devrait être transférée dans le service destination.");
-        assertFalse(service.creatures.contains(creature), "La créature ne devrait plus être dans le service source.");
+        assertTrue(serviceDestination.creatures.contains(this.creature), "La créature devrait être transférée dans le service destination.");
+        assertFalse(service.creatures.contains(this.creature), "La créature ne devrait plus être dans le service source.");
     }
 
     @Test

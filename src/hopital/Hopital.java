@@ -123,12 +123,12 @@ public class Hopital {
                 System.out.println();
 
                 switch (choix) {
-                    case 1:
+                    case 1: // Voir les services et les créatures
                         afficherServices();
                         gestionCompteursTours.afficherCompteurs();
                         break;
 
-                    case 2:
+                    case 2: // Gérer les médecins
                         if (medecinsDisponibles.isEmpty()) {
                             System.out.println("Tous les médecins ont déjà agi ce tour.");
                         } else {
@@ -136,7 +136,7 @@ public class Hopital {
                         }
                         break;
 
-                    case 3:
+                    case 3: // Passer au tour suivant
                         nettoyerCreaturesSoignees();
                         for (ServiceMed service : services) {
                             List<Creature> creaturesTrepasses = new ArrayList<>();
@@ -226,7 +226,7 @@ public class Hopital {
                         finTour = true;
                         break;
 
-                    case 4:
+                    case 4: // Quitter
                         System.out.println("Merci d'avoir joué !");
                         return;
 
@@ -292,13 +292,14 @@ public class Hopital {
             System.out.println("1. Soigner une créature");
             System.out.println("2. Réviser le budget d'un service");
             System.out.println("3. Transférer une créature entre services");
+            System.out.println("4. Creer un médecin");
             System.out.print("Votre choix : ");
 
             int choixAction = scanner.nextInt();
             scanner.nextLine();
 
             switch (choixAction) {
-                case 1:
+                case 1: // Soigner une créature
                     boolean choixValide = false;
                     int indexService;
                     do {
@@ -327,7 +328,7 @@ public class Hopital {
                     actionEffectuee = true;
                     break;
 
-                case 2:
+                case 2: // Réviser le budget d'un service
                     choixValide = false;
                     do {
                         System.out.println("Choisissez un service pour réviser le budget :");
@@ -346,7 +347,7 @@ public class Hopital {
                     actionEffectuee = true;
                     break;
 
-                case 3:
+                case 3: // Transférer une créature entre services
                     System.out.println("Transfert de créatures entre services :");
                     afficherServicesAvecIndex();
                     choixValide = false;
@@ -392,6 +393,21 @@ public class Hopital {
                     } else {
                         System.out.println("Choix invalide.");
                     }
+                    break;
+
+                case 4: // Créer un médecin
+                    System.out.println("Création d'un nouveau médecin :");
+                    System.out.print("Entrez le nom du médecin : ");
+                    String nomMedecin = scanner.nextLine();
+                    System.out.print("Entrez le sexe du médecin : ");
+                    String sexe = scanner.nextLine();
+                    System.out.print("Entrez l'âge du médecin : ");
+                    int age = scanner.nextInt();
+                    Medecin nouveauMedecin = new Medecin(nomMedecin,sexe, age, "Medecin");
+                    ajouterMedecin(nouveauMedecin);
+                    System.out.println("Le médecin " + nomMedecin + " a été créé.");
+                    actionEffectuee = true;
+                    medecinsDisponibles.remove(nouveauMedecin);
                     break;
 
                 default:

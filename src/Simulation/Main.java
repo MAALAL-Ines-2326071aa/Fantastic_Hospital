@@ -23,8 +23,8 @@ public class Main {
         hopital.ajouterService(MPT);
         Creature creature1= Creature.creerCreature("Elfe", "Legolas", "Mâle", 100, 100, 5, genererMaladieAleatoire());
         Creature creature2=Creature.creerCreature("Nain", "Damien", "Mâle", 100, 10, 5, genererMaladieAleatoire());
-        Medecin medecin1 = new Medecin("Dr. John", "Homme", 45, creature1);
-        Medecin medecin2 = new Medecin("Dr. Smith", "Femme", 39, creature2);
+        Medecin medecin1 = new Medecin("Dr. John", "Homme", 45, "Medecin");
+        Medecin medecin2 = new Medecin("Dr. Smith", "Femme", 39, "Medecin");
         hopital.ajouterMedecin(medecin1);
         hopital.ajouterMedecin(medecin2);
         urgences.ajouterCreature(creature1);
