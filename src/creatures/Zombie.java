@@ -4,7 +4,7 @@ import maladies.Maladie;
 
 import java.util.List;
 
-public class Zombie extends Creature {
+public class Zombie extends Creature implements Regenerante {
 
     private String type;
 
@@ -29,4 +29,3 @@ public class Zombie extends Creature {
         System.out.println(nomCreature + " a contaminé " + cible.nomCreature + " avec " + maladie.nomMaladie);
     }
 }
-

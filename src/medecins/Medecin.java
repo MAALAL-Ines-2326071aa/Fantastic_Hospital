@@ -106,4 +106,3 @@ public class Medecin {
         return service;
     }
 }
-

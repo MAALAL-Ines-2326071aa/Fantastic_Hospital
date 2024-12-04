@@ -1,5 +1,6 @@
 package hopital;
 
+import creatures.Demoralisante;
 import maladies.Maladie;
 import servicesMed.ServiceMed;
 import medecins.Medecin;
@@ -69,15 +70,17 @@ public class Hopital {
     }
 
     // Système de tours
+    // Système de tours
     public void systemeDeTours() {
         Scanner scanner = new Scanner(System.in);
-        ServiceMed urgences = services.get(0); // Le service des urgences est le premier
+        ServiceMed urgences = services.get(0);
         GestionCompteursTours gestionCompteursTours = new GestionCompteursTours();
+
         boolean premierTour = true;
 
         while (true) {
             System.out.println("\n--- Nouveau tour ---");
-            if(!premierTour){
+            if (!premierTour) {
                 System.out.println("Des créatures arrivent aux urgences...");
                 medecinsDisponibles = new ArrayList<>(medecins);
 
@@ -100,9 +103,8 @@ public class Hopital {
                     urgences.ajouterCreature(nouvelleCreature);
                     gestionCompteursTours.initialiserCompteur(nouvelleCreature);
                 }
-
             }
-            premierTour=false;
+            premierTour = false;
 
             boolean finTour = false; // Variable pour contrôler la fin du tour
 
@@ -117,6 +119,7 @@ public class Hopital {
                 int choix = scanner.nextInt();
                 scanner.nextLine(); // Consomme la nouvelle ligne
                 System.out.println();
+
                 switch (choix) {
                     case 1:
                         afficherServices();
@@ -134,21 +137,37 @@ public class Hopital {
                     case 3:
                         nettoyerCreaturesSoignees();
                         for (ServiceMed service : services) {
+                            List<Creature> creaturesTrepasses = new ArrayList<>();
+
                             for (Creature creature : service.creatures) {
+                                gestionCompteursTours.incrementerCompteur(creature);
                                 int moralActuel = creature.getMoral();
                                 int diminutionMoral = (int) (Math.random() * 5) + 1;
                                 creature.setMoral(Math.max(0, moralActuel - diminutionMoral));
+
+                                // Aggraver une maladie ou en ajouter une nouvelle
                                 List<Maladie> maladies = creature.getMaladies();
                                 if (!maladies.isEmpty()) {
                                     Maladie maladieExistante = maladies.get((int) (Math.random() * maladies.size()));
                                     maladieExistante.aggraver();
                                     System.out.println("La maladie " + maladieExistante.getNomMaladie() + " de " + creature.getNomCreature() + " s'est aggravée.");
-
                                 } else {
                                     creature.ajouterMaladie(genererMaladieAleatoire());
                                     System.out.println("La créature " + creature.getNomCreature() + " a contracté une nouvelle maladie : " + creature.getMaladies().getFirst().getNomMaladie() + ".");
                                 }
+
+                                // Vérifier le trépas basé uniquement sur le moral et les maladies
+                                if (creature.getMoral() <= 0 || creature.getMaladies().size() >= 5) {
+                                    System.out.println(creature.getNomCreature() + " a trépassé !");
+                                    if (creature instanceof Demoralisante) {
+                                        ((Demoralisante) creature).demoraliser(service.creatures);
+                                    }
+                                    creaturesTrepasses.add(creature);
+                                }
                             }
+
+                            // Supprimer les créatures trépassées
+                            service.creatures.removeAll(creaturesTrepasses);
                         }
 
                         finTour = true;
@@ -164,6 +183,8 @@ public class Hopital {
             }
         }
     }
+
+
 
 
     // Méthode pour nettoyer les créatures complètement soignées et dont le morale et a 100
@@ -400,4 +421,3 @@ public class Hopital {
         return services;
     }
 }
-

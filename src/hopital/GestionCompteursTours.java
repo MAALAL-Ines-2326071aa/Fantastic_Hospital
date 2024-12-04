@@ -91,3 +91,4 @@ public class GestionCompteursTours {
         return moraux.getOrDefault(creature, 100);
     }
 }
+//////////////

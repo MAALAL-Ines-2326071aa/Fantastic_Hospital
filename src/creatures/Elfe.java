@@ -49,5 +49,5 @@ public class Elfe extends Creature implements Demoralisante, ClientVIP {
     }
 }
 
-/////////////ouais ouasi 22222
+/////////////ouais ouasi ouas
 

@@ -4,14 +4,14 @@ import maladies.Maladie;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Lycanthrope extends Creature {
-    private String categorieAge; // "jeune", "adulte", "vieux"
-    private int force; // Indique la force brute
-    private int facteurDomination; // Difference entre dominations exercees et subies
-    private String rang; // Rang de domination
-    private int niveau; // Niveau calcule
-    private int impetuosite; // Niveau d'impulsivite
-    private Meute meute; // Nom de la meute ou "solitaire"
+public class Lycanthrope extends Creature implements Contagieuse {
+    private String categorieAge;
+    private int force;
+    private int facteurDomination;
+    private String rang;
+    private int niveau;
+    private int impetuosite;
+    private Meute meute;
     private String type;
 
     public Lycanthrope(String type,String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie,
@@ -24,8 +24,6 @@ public class Lycanthrope extends Creature {
         this.impetuosite = impetuosite;
         this.meute = null;
         this.type=type;
-
-        // Calcul initial du niveau
         calculerNiveau();
     }
 
@@ -81,13 +79,12 @@ public class Lycanthrope extends Creature {
         this.impetuosite /= 2;
         this.rang = null; // Plus de rang en forme humaine
     }
-
-    // Methode pour contaminer une autre creature
-    
+    @Override
     public boolean estContagieuse() {
         return getMaladies() != null;
     }
 
+    @Override
     public void contaminer(Creature cible, Maladie maladie) {
         if (estContagieuse()) {
             cible.tomberMalade(maladie);
@@ -96,6 +93,8 @@ public class Lycanthrope extends Creature {
             System.out.println(nomCreature + " n'est pas contagieux.");
         }
     }
+
+
 
 
 

@@ -15,6 +15,7 @@ public class Creature {
     public List<Maladie> maladies;
     public static List<Creature> creaturesEmportees = new ArrayList<>();
     private String type;
+    private int compteurDeTours;
 
 
     public Creature(String type, String nomCreature, String sexe, double poids, double taille, int age, Maladie maladie) {
@@ -33,7 +34,13 @@ public class Creature {
             System.out.println(nomCreature + " a attrapé la maladie : " + maladie.nomMaladie);
         }
     }
+    public int getCompteurDeTours() {
+        return compteurDeTours;
+    }
 
+    public void setCompteurDeTours(int compteurDeTours) {
+        this.compteurDeTours = compteurDeTours;
+    }
     public String getType() {
         return type;
     }
@@ -103,12 +110,12 @@ public class Creature {
 
     public void etreSoignee(Maladie maladie) {
         if (this.maladies.contains(maladie)) {
-                this.maladies.remove(maladie);
-                this.moral += 20;
-                if (this.moral > 100) {
-                    this.moral = 100;
-                }
-                System.out.println(nomCreature + " est soignée de " + maladie.nomMaladie + " et retrouve du moral : " + this.moral);
+            this.maladies.remove(maladie);
+            this.moral += 20;
+            if (this.moral > 100) {
+                this.moral = 100;
+            }
+            System.out.println(nomCreature + " est soignée de " + maladie.nomMaladie + " et retrouve du moral : " + this.moral);
         } else {
             System.out.println(nomCreature + " n'est pas atteinte par " + maladie.nomMaladie);
         }
@@ -148,7 +155,7 @@ public class Creature {
             case "Nain":
                 return new Nain(nom, sexe, moral, poids, age, maladie,type);
             case "Lycanthrope":
-                return new Lycanthrope(type,nom, sexe, moral, poids, age, maladie, age<50 ? "jeune":"vieux", (int) (Math.random()*10),(int) (Math.random()*10), poids<75 ? "omega": "beta", (int) (Math.random()*10) );
+                return new Lycanthrope(type,nom, sexe, moral, poids, age, maladie, Math.random()>0.5 ? "jeune":"vieux", (int) (Math.random()*10),(int) (Math.random()*10), Math.random()<0.5 ? "omega": "beta", (int) (Math.random()*10) );
             case "Orque":
                 return new Orque(nom, sexe, moral, poids, age, maladie,type);
             case "Zombie":
@@ -163,5 +170,3 @@ public class Creature {
     }
 
 }
-
-

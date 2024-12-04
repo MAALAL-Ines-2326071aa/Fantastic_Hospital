@@ -1,5 +1,8 @@
 package servicesMed;
 
+import creatures.*;
+import creatures.Regenerante;
+
 public class Crypte extends ServiceMed {
     private int niveauVentilation;
     private double temperature;
@@ -39,4 +42,19 @@ public class Crypte extends ServiceMed {
         System.out.println("Niveau de ventilation : " + niveauVentilation);
         System.out.println("Température : " + temperature + "°C");
     }
+    @Override
+    public void ajouterCreature(Creature creature) {
+        if (creatures.size() >= nbMaxCreatures) {
+            System.out.println("Le service " + getNom() + " est plein. Impossible d'ajouter " + creature.getNomCreature());
+            return;
+        }
+        if (creature instanceof Regenerante) {
+            creatures.add(creature);
+            System.out.println(creature.getNomCreature() + " a été ajoutée à la crypte " + getNom());
+        } else {
+            System.out.println(creature.getNomCreature() + " ne peut pas être ajoutée à la crypte " + getNom() + " car elle n'est pas régénérante.");
+        }
+    }
+
 }
+
