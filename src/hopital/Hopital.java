@@ -9,11 +9,10 @@ import servicesMed.Crypte;
 import servicesMed.ServiceMed;
 import medecins.Medecin;
 import creatures.Creature;
+import java.util.Collections;
+import java.util.Comparator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Hopital {
     public String nom;
@@ -45,6 +44,14 @@ public class Hopital {
         );
         return listeMaladies.get((int) (Math.random() * listeMaladies.size()));
     }
+
+    /* test qui na pas marcher
+    public void trierCreaturesParNom() {
+        Collections.sort(creatures, Comparator.comparing(Creature::getNomCreature));
+        System.out.println("Les créatures du service " + nom + " ont été triées par nom.");
+    }
+    */
+
 
 
 
@@ -368,6 +375,7 @@ public class Hopital {
                     actionEffectuee = true;
                     break;
 
+
                 case 3: // Transférer une créature entre services
                     System.out.println("Transfert de créatures entre services :");
                     afficherServicesAvecIndex();
@@ -399,7 +407,6 @@ public class Hopital {
                         ServiceMed source = services.get(indexSource - 1);
                         ServiceMed destination = services.get(indexDestination - 1);
 
-                        // Vérification de la compatibilité des types
                         System.out.println("Sélectionnez une créature à transférer :");
                         for (int i = 0; i < source.creatures.size(); i++) {
                             System.out.println((i + 1) + ". " + source.creatures.get(i).getNomCreature());
@@ -409,23 +416,38 @@ public class Hopital {
                         if (choixCreature >= 1 && choixCreature <= source.creatures.size()) {
                             Creature creature = source.creatures.get(choixCreature - 1);
 
-                            // Cas spécifiques pour Crypte et Centre de Quarantaine
-                            if (destination instanceof Crypte) {
-                                ((Crypte) destination).ajouterCreature(creature);
-                            } else if (destination instanceof CentreQuarantaine) {
-                                ((CentreQuarantaine) destination).ajouterCreature(creature);
-                            } else {
-                                // Vérification standard de la correspondance des types
-                                String typeCreature = creature.getType(); // On récupère le type de la créature
-                                String typeServiceDestination = Medecin.getServiceType(destination); // On récupère le type du service de destination
-                                if (typeCreature.equals(typeServiceDestination)) {
-                                    // Si les types correspondent, on effectue le transfert
-                                    medecin.transfererCreature(source, destination, creature);
-                                    System.out.println("Créature transférée.");
-                                } else {
-                                    System.out.println("Erreur : Le type de la créature ne correspond pas au type du service destination.");
+                            // Vérification des cas spécifiques et de la compatibilité
+                            Thread transfertThread = new Thread(() -> {
+                                System.out.println("Début du transfert de " + creature.getNomCreature() + "...");
+
+                                try {
+                                    Thread.sleep(2000); // Simule un délai de 2 secondes pour le transfert
+                                } catch (InterruptedException e) {
+                                    System.out.println("Le transfert a été interrompu.");
+                                    return;
                                 }
-                            }
+
+                                if (destination instanceof Crypte) {
+                                    ((Crypte) destination).ajouterCreature(creature);
+                                    System.out.println("Créature transférée dans la Crypte.");
+                                } else if (destination instanceof CentreQuarantaine) {
+                                    ((CentreQuarantaine) destination).ajouterCreature(creature);
+                                    System.out.println("Créature transférée dans le Centre de Quarantaine.");
+                                } else {
+                                    // Vérification standard de la correspondance des types
+                                    String typeCreature = creature.getType();
+                                    String typeServiceDestination = Medecin.getServiceType(destination);
+                                    if (typeCreature.equals(typeServiceDestination)) {
+                                        medecin.transfererCreature(source, destination, creature);
+                                        System.out.println("Créature transférée avec succès.");
+                                    } else {
+                                        System.out.println("Erreur : Le type de la créature ne correspond pas au type du service destination.");
+                                    }
+                                }
+                            });
+
+                            transfertThread.start(); // Lance le thread pour gérer le transfert asynchrone
+
                         } else {
                             System.out.println("Choix invalide.");
                         }
@@ -434,6 +456,8 @@ public class Hopital {
                         System.out.println("Choix invalide.");
                     }
                     break;
+
+
 
                 case 4: // Créer un médecin
                     System.out.println("Création d'un nouveau médecin :");
