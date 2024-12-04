@@ -2,6 +2,7 @@ package hopital;
 
 import creatures.Demoralisante;
 import creatures.Lycanthrope;
+import creatures.Meute;
 import maladies.Maladie;
 import servicesMed.ServiceMed;
 import medecins.Medecin;
@@ -154,21 +155,37 @@ public class Hopital {
                                     System.out.println("La maladie " + maladieExistante.getNomMaladie() + " de " + creature.getNomCreature() + " s'est aggravée.");
                                 } else {
                                     creature.ajouterMaladie(genererMaladieAleatoire());
-                                    System.out.println("La créature " + creature.getNomCreature() + " a contracté une nouvelle maladie : " + creature.getMaladies().getFirst().getNomMaladie() + ".");
+                                    System.out.println("La créature " + creature.getNomCreature() + " a contracté une nouvelle maladie : " + creature.getMaladies().get(0).getNomMaladie() + ".");
                                 }
 
                                 // Actions spécifiques aux lycanthropes
                                 if (creature instanceof Lycanthrope) {
                                     Lycanthrope lycan = (Lycanthrope) creature;
 
-                                    // Transformation aléatoire
-                                    if (Math.random() < 0.2) { // 20% de chance de transformation
-                                        lycan.transformerEnHumain();
-                                        System.out.println(lycan.getNomCreature() + " s'est transformé en humain !");
+                                    // Formation de meutes pour les lycanthropes solitaires
+                                    if (lycan.getMeute() == null) {
+                                        Meute nouvelleMeute = new Meute("Meute " + lycan.getNomCreature());
+                                        nouvelleMeute.ajouterLycanthrope(lycan);
+                                        System.out.println(lycan.getNomCreature() + " a formé une nouvelle meute.");
+                                    }
+
+                                    // Défier la hiérarchie au sein de la meute
+                                    if (Math.random() < 0.3) { // 30% de chance de tenter une domination
+                                        Meute meute = lycan.getMeute();
+                                        if (meute != null) {
+                                            Lycanthrope cible = meute.getMembres().stream()
+                                                    .filter(m -> !m.equals(lycan))
+                                                    .findAny()
+                                                    .orElse(null);
+
+                                            if (cible != null) {
+                                                lycan.tenterDomination(cible);
+                                            }
+                                        }
                                     }
 
                                     // Hurlements pouvant influencer les autres créatures
-                                    if (Math.random() < 0.3) { // 30% de chance de hurler
+                                    if (Math.random() < 0.2) { // 30% de chance de hurler
                                         String message = Math.random() < 0.5 ? "Domination" : "Soumission";
                                         lycan.hurlerLycanthrope(message);
                                         System.out.println(lycan.getNomCreature() + " pousse un hurlement de " + message + ".");
@@ -183,7 +200,6 @@ public class Hopital {
                                     }
                                 }
 
-
                                 // Vérifier le trépas basé uniquement sur le moral et les maladies
                                 if (creature.getMoral() <= 0 || creature.getMaladies().stream().anyMatch(m -> m.getNiveauActuel() >= m.niveauMax)) {
                                     System.out.println(creature.getNomCreature() + " a trépassé !");
@@ -194,8 +210,17 @@ public class Hopital {
                                 }
                             }
 
+                            // Mise à jour des hiérarchies des meutes
+                            for (Lycanthrope lycan : service.creatures.stream().filter(c -> c instanceof Lycanthrope).map(c -> (Lycanthrope) c).toList()) {
+                                if (lycan.getMeute() != null) {
+                                    lycan.getMeute().mettreAJourHierarchie();
+                                }
+                            }
+
+
                             // Supprimer les créatures trépassées
                             service.creatures.removeAll(creaturesTrepasses);
+                            service.nbCreaturesPresentes= service.nbCreaturesPresentes-creaturesTrepasses.size();
                         }
 
                         finTour = true;
